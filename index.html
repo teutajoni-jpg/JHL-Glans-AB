@@ -5,38 +5,381 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Polering Kalmar Län | JHL Glans AB</title>
-  <meta name="description" content="JHL Glans AB erbjuder professionell polering, bilvård och lackförsegling i Kalmar län. Över 12 års erfarenhet. Vi kan även komma hem till dig.">
+  <meta name="description" content="JHL Glans AB erbjuder professionell polering, bilvård och lackförsegling i Kalmar län. Över 12 års erfarenhet. Vi kan komma hem till dig.">
 
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{font-family:Arial,sans-serif;background:#f5f1ea;color:#1f2933;line-height:1.7}
-    header{background:#fff;padding:18px 8%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;box-shadow:0 5px 25px rgba(0,0,0,.08);border-bottom:3px solid #b08d57}
-    .logo{font-size:26px;font-weight:900;color:#111827}.logo span{color:#b08d57}
-    nav a{color:#111827;text-decoration:none;margin-left:14px;font-weight:bold}
-    nav a:hover{color:#b08d57}
-    .lang-btn{background:#111827;color:white;border:0;padding:8px 12px;border-radius:5px;margin-left:5px;cursor:pointer;font-weight:bold}
-    .hero{min-height:88vh;background:linear-gradient(90deg,rgba(17,24,39,.90),rgba(17,24,39,.55)),url("https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2") center/cover;color:white;display:flex;align-items:center;padding:90px 8%}
-    .hero-content{max-width:900px}.badge{display:inline-block;border:1px solid #d6b06d;color:#f5d49a;padding:8px 16px;border-radius:30px;margin-bottom:20px;font-weight:bold}
-    .hero h1{font-size:58px;line-height:1.1;margin-bottom:22px}.hero p{font-size:21px;color:#f1f5f9;margin-bottom:26px;max-width:780px}
-    .hero-highlights{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px}.hero-highlights div{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:12px 16px;border-radius:8px;font-weight:bold}
-    .button{display:inline-block;background:#b08d57;color:white;padding:15px 28px;border-radius:6px;text-decoration:none;font-weight:bold;border:2px solid #b08d57;margin:5px}.button:hover{background:#111827;border-color:#111827}.button.light{background:transparent;color:white}
-    section{padding:80px 8%}.section-title{text-align:center;margin-bottom:45px}.section-title h2{font-size:38px;color:#111827;margin-bottom:10px}.section-title p{color:#64748b;font-size:18px;max-width:850px;margin:auto}
-    .trust{background:white;padding:30px 8%;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;box-shadow:0 8px 30px rgba(0,0,0,.06)}
-    .trust-box{text-align:center;padding:20px}.trust-box h3{color:#b08d57;font-size:25px;margin-bottom:6px}
-    .about{background:#f5f1ea}.about-box{max-width:1050px;margin:auto;background:white;padding:42px;border-radius:14px;box-shadow:0 10px 35px rgba(0,0,0,.08);border-left:6px solid #b08d57}.about-box p{margin-bottom:16px;font-size:18px}
-    .services,.reviews,.faq{background:white}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
-    .card{background:#f8fafc;padding:32px;border-radius:14px;border:1px solid #e5e7eb;box-shadow:0 8px 25px rgba(0,0,0,.05)}.card h3{color:#111827;font-size:24px;margin-bottom:12px}.card strong{color:#b08d57}
-    .home-service{background:linear-gradient(135deg,#111827,#263241);color:white;text-align:center}.home-service h2{color:#f5d49a;font-size:42px;margin-bottom:18px}.home-service p{max-width:950px;margin:auto;font-size:21px;color:#f1f5f9}
-    .review-card{background:#f8fafc;padding:28px;border-radius:14px;border-left:5px solid #b08d57;box-shadow:0 8px 25px rgba(0,0,0,.05)}.review-card p{font-style:italic;margin-bottom:15px}
-    .booking{background:#111827;color:white}.booking .section-title h2{color:#f5d49a}.booking .section-title p{color:#e5e7eb}
-    form{max-width:800px;margin:auto;background:white;padding:35px;border-radius:14px;color:#111827;box-shadow:0 10px 35px rgba(0,0,0,.18)}
-    label{display:block;font-weight:bold;margin-bottom:6px}input,select,textarea{width:100%;padding:14px;margin-bottom:18px;border:1px solid #cbd5e1;border-radius:6px;font-size:16px}textarea{height:130px;resize:vertical}.form-note{font-size:14px;color:#64748b;margin-top:10px}
-    .map{background:#f5f1ea}.map-box{max-width:1000px;margin:auto;background:white;padding:20px;border-radius:14px;box-shadow:0 10px 35px rgba(0,0,0,.08)}iframe{width:100%;height:380px;border:0;border-radius:10px}
-    details{max-width:900px;margin:14px auto;background:#f8fafc;padding:20px;border-radius:10px;border:1px solid #e5e7eb}summary{font-weight:bold;cursor:pointer}details p{margin-top:12px;color:#475569}
-    .contact{background:#111827;color:white;text-align:center}.contact h2{color:#f5d49a;font-size:38px;margin-bottom:15px}.phone{font-size:28px;font-weight:bold;margin:25px 0}
-    footer{background:#070b12;color:#cbd5e1;text-align:center;padding:25px;border-top:3px solid #b08d57}
-    @media(max-width:900px){header{flex-direction:column;gap:14px}nav{text-align:center}nav a{margin:0 7px;font-size:14px}.hero h1{font-size:38px}.hero p{font-size:18px}}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f3ee;
+      color: #1f2933;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border-bottom: 3px solid #b08d57;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 900;
+      color: #111827;
+    }
+
+    .logo span {
+      color: #b08d57;
+    }
+
+    nav a {
+      color: #111827;
+      text-decoration: none;
+      margin-left: 18px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #b08d57;
+    }
+
+    .lang-btn {
+      background: #111827;
+      color: white;
+      border: none;
+      padding: 7px 10px;
+      border-radius: 5px;
+      margin-left: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .hero {
+      min-height: 82vh;
+      background:
+        linear-gradient(90deg, rgba(17,24,39,0.88), rgba(17,24,39,0.55)),
+        url("https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2") center/cover;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 90px 8%;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .badge {
+      display: inline-block;
+      border: 1px solid #d6b06d;
+      color: #f5d49a;
+      padding: 8px 16px;
+      border-radius: 30px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 21px;
+      color: #f1f5f9;
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #b08d57;
+      color: white;
+      padding: 14px 26px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid #b08d57;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background: #111827;
+      border-color: #111827;
+    }
+
+    section {
+      padding: 70px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      color: #111827;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #64748b;
+      font-size: 18px;
+      max-width: 760px;
+      margin: auto;
+    }
+
+    .trust {
+      background: white;
+      padding: 28px 8%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    }
+
+    .trust-box {
+      text-align: center;
+      padding: 18px;
+    }
+
+    .trust-box h3 {
+      color: #b08d57;
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+
+    .about-box {
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      padding: 38px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border-left: 6px solid #b08d57;
+    }
+
+    .about-box p {
+      margin-bottom: 14px;
+      font-size: 18px;
+    }
+
+    .services,
+    .reviews,
+    .faq {
+      background: white;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #f8fafc;
+      padding: 30px;
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #111827;
+    }
+
+    .home-service {
+      background: linear-gradient(135deg, #111827, #263241);
+      color: white;
+      text-align: center;
+    }
+
+    .home-service h2 {
+      color: #f5d49a;
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .home-service p {
+      max-width: 850px;
+      margin: auto;
+      font-size: 20px;
+      color: #f1f5f9;
+    }
+
+    .review-card {
+      background: #f8fafc;
+      padding: 28px;
+      border-radius: 14px;
+      border-left: 5px solid #b08d57;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+
+    .review-card p {
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .booking {
+      background: #111827;
+      color: white;
+    }
+
+    .booking .section-title h2 {
+      color: #f5d49a;
+    }
+
+    .booking .section-title p {
+      color: #e5e7eb;
+    }
+
+    form {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 35px;
+      border-radius: 14px;
+      color: #111827;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.18);
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 18px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    textarea {
+      height: 125px;
+      resize: vertical;
+    }
+
+    .form-note {
+      font-size: 14px;
+      color: #64748b;
+      margin-top: 12px;
+    }
+
+    .map {
+      background: #f6f3ee;
+    }
+
+    .map-box {
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      padding: 18px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    iframe {
+      width: 100%;
+      height: 360px;
+      border: 0;
+      border-radius: 10px;
+    }
+
+    details {
+      max-width: 900px;
+      margin: 14px auto;
+      background: #f8fafc;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+    }
+
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    details p {
+      margin-top: 10px;
+      color: #475569;
+    }
+
+    .contact {
+      background: #111827;
+      color: white;
+      text-align: center;
+    }
+
+    .contact h2 {
+      color: #f5d49a;
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .phone {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 22px 0;
+    }
+
+    footer {
+      background: #070b12;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 25px;
+      border-top: 3px solid #b08d57;
+    }
+
+    @media(max-width: 900px) {
+      header {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        margin: 0 6px;
+        font-size: 14px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+    }
   </style>
 </head>
 
@@ -44,6 +387,7 @@
 
 <header>
   <div class="logo">JHL <span>Glans</span> AB</div>
+
   <nav>
     <a href="#hem" data-key="navHome">Hem</a>
     <a href="#om" data-key="navAbout">Om oss</a>
@@ -59,145 +403,187 @@
 <section class="hero" id="hem">
   <div class="hero-content">
     <div class="badge" data-key="heroBadge">Professionell polering i Kalmar län</div>
+
     <h1 data-key="heroTitle">Polering – få din bil att glänsa.</h1>
-    <p data-key="heroText1">JHL Glans AB hjälper dig att ge bilen ny glans, bättre känsla och ett mer välvårdat utseende. Med över 12 års erfarenhet inom polering arbetar vi noggrant för att ge bilen en finish som verkligen märks.</p>
 
-    <div class="hero-highlights">
-      <div data-key="highlight1">Lackförsegling</div>
-      <div data-key="highlight2">Polering hemma hos dig</div>
-      <div data-key="highlight3">Över 12 års erfarenhet</div>
-    </div>
-
-    <p data-key="heroText2">Vi erbjuder även lackförsegling som hjälper till att skydda bilens lack efter polering. Vill du göra det enkelt? Vi kan komma hem till dig och utföra tjänsten där bilen finns.</p>
+    <p data-key="heroText">
+      Professionell polering, bilvård och lackförsegling. Över 12 års erfarenhet.
+      Vi kan även komma hem till dig och utföra tjänsten där bilen finns.
+    </p>
 
     <a href="tel:0729360681" class="button">Ring 072-936 06 81</a>
-    <a href="#bokning" class="button light" data-key="heroButton">Få pris & tid</a>
+    <a href="#bokning" class="button" data-key="heroButton">Få pris & tid</a>
   </div>
 </section>
 
 <div class="trust">
-  <div class="trust-box"><h3 data-key="trust1Title">Sedan 2022</h3><p data-key="trust1Text">Verksamhet med fokus på kvalitet.</p></div>
-  <div class="trust-box"><h3 data-key="trust2Title">12+ år</h3><p data-key="trust2Text">Erfarenhet inom polering.</p></div>
-  <div class="trust-box"><h3 data-key="trust3Title">Hemservice</h3><p data-key="trust3Text">Vi kan komma hem till dig.</p></div>
-  <div class="trust-box"><h3 data-key="trust4Title">Lackförsegling</h3><p data-key="trust4Text">Skyddande behandling för bilens lack.</p></div>
+  <div class="trust-box">
+    <h3 data-key="trust1Title">Sedan 2022</h3>
+    <p data-key="trust1Text">Fokus på kvalitet.</p>
+  </div>
+
+  <div class="trust-box">
+    <h3 data-key="trust2Title">12+ år</h3>
+    <p data-key="trust2Text">Erfarenhet inom polering.</p>
+  </div>
+
+  <div class="trust-box">
+    <h3 data-key="trust3Title">Hemservice</h3>
+    <p data-key="trust3Text">Vi kan komma hem till dig.</p>
+  </div>
+
+  <div class="trust-box">
+    <h3 data-key="trust4Title">Lackförsegling</h3>
+    <p data-key="trust4Text">Skyddar bilens lack.</p>
+  </div>
 </div>
 
-<section class="about" id="om">
+<section id="om">
   <div class="section-title">
     <h2 data-key="aboutTitle">Om JHL Glans AB</h2>
-    <p data-key="aboutSubtitle">Professionell bilvård med noggrannhet, kvalitet och känsla för detaljer.</p>
+    <p data-key="aboutSubtitle">Noggrann bilvård med professionell finish.</p>
   </div>
+
   <div class="about-box">
-    <p data-key="aboutText1">JHL Glans AB startade sin verksamhet år 2022 och arbetar med professionell polering, bilvård och lackförsegling i Kalmar län.</p>
-    <p data-key="aboutText2">Personen som arbetar med polering har mer än 12 års erfarenhet och vet hur bilens yta ska behandlas för att få fram glans, djup och en bättre finish.</p>
-    <p data-key="aboutText3">Vårt mål är att bilen inte bara ska se renare ut, utan kännas bättre, fräschare och mer välvårdad. Vi vill att kunden ska känna att något nytt har hänt med bilen.</p>
-    <p data-key="aboutText4">För att göra det smidigare för dig kan vi även erbjuda polering hemma hos dig. Du kontaktar oss, skickar gärna bilder på bilen, och vi hjälper dig med rekommendation, pris och tid.</p>
+    <p data-key="aboutText1">
+      JHL Glans AB startade sin verksamhet år 2022 och arbetar med polering,
+      bilvård och lackförsegling i Kalmar län.
+    </p>
+
+    <p data-key="aboutText2">
+      Personen som arbetar med polering har mer än 12 års erfarenhet och vet hur
+      bilens yta ska behandlas för att få fram glans, djup och en bättre finish.
+    </p>
+
+    <p data-key="aboutText3">
+      Skicka gärna bilder på bilen, så hjälper vi dig med rekommendation, pris och tid.
+    </p>
   </div>
 </section>
 
 <section class="services" id="tjanster">
   <div class="section-title">
     <h2 data-key="servicesTitle">Våra tjänster</h2>
-    <p data-key="servicesSubtitle">Vi fokuserar på polering, bilvård och lackförsegling. Varje behandling anpassas efter bilens skick och vad du vill uppnå.</p>
+    <p data-key="servicesSubtitle">Enkla tjänster med tydligt resultat.</p>
   </div>
 
   <div class="cards">
     <div class="card">
-      <h3 data-key="service1Title">Professionell polering</h3>
-      <p data-key="service1Text1">För dig som vill få bilen att glänsa igen. Vi arbetar noggrant med bilens yta för att ta fram glans, djup och en renare känsla.</p>
-      <p data-key="service1Text2">Polering kan göra stor skillnad på bilens helhetsintryck. Bilen känns fräschare, mer välvårdad och får en finish som verkligen märks.</p>
+      <h3 data-key="service1Title">Polering</h3>
+      <p data-key="service1Text">
+        Vi tar fram bilens glans, djup och fräscha känsla. Perfekt när bilen ska kännas ny igen.
+      </p>
     </div>
 
     <div class="card">
       <h3 data-key="service2Title">Lackförsegling</h3>
-      <p data-key="service2Text1">Lackförsegling är inte målning och inte lackering. Det är en behandling som appliceras på bilens befintliga lack för att skydda ytan.</p>
-      <p data-key="service2Text2">Behandlingen hjälper till att göra bilen lättare att hålla ren och hjälper glansen att hålla längre.</p>
+      <p data-key="service2Text">
+        En skyddsbehandling på bilens befintliga lack. Det är inte lackering eller målning.
+      </p>
     </div>
 
     <div class="card">
       <h3 data-key="service3Title">Bilvård</h3>
-      <p data-key="service3Text1">Vi tar hand om bilen med noggrannhet så att den känns fräschare, renare och trevligare att använda.</p>
+      <p data-key="service3Text">
+        Noggrann rengöring och vård som gör bilen fräschare och trevligare att använda.
+      </p>
     </div>
 
     <div class="card">
       <h3 data-key="service4Title">Polering hemma hos dig</h3>
-      <p data-key="service4Text1">Vi kan komma hem till dig och polera bilen där den står.</p>
-      <p data-key="service4Text2">Du behöver bara kontakta oss, skicka gärna bilder på bilen och berätta vad du vill ha hjälp med.</p>
-    </div>
-
-    <div class="card">
-      <h3 data-key="service5Title">Rekommendation efter bilder</h3>
-      <p data-key="service5Text1">Skicka bilder på bilen. Då kan vi enklare se bilens skick och rekommendera rätt tjänst, pris och tid.</p>
-    </div>
-
-    <div class="card">
-      <h3 data-key="service6Title">Personlig service</h3>
-      <p data-key="service6Text1">Vi är bara ett samtal bort. Vår service bygger på enkel kontakt, tydlig kommunikation och ett resultat kunden känner direkt.</p>
+      <p data-key="service4Text">
+        Vi kan komma hem till dig och utföra jobbet där bilen står.
+      </p>
     </div>
   </div>
 </section>
 
 <section class="home-service">
   <h2 data-key="homeTitle">Vi kan komma hem till dig</h2>
-  <p data-key="homeText">Vill du slippa åka iväg med bilen? JHL Glans AB kan erbjuda polering hemma hos dig. Vi tar med oss erfarenheten, noggrannheten och känslan för detaljer direkt till platsen där bilen finns.</p>
+  <p data-key="homeText">
+    Vill du slippa åka iväg med bilen? Kontakta oss, skicka bilder och berätta vad du behöver.
+    Vi återkommer med rekommendation, pris och tid.
+  </p>
 </section>
 
 <section class="reviews" id="recensioner">
   <div class="section-title">
     <h2 data-key="reviewsTitle">Kundrecensioner</h2>
-    <p data-key="reviewsSubtitle">Exempel på vad kunder uppskattar hos JHL Glans AB.</p>
+    <p data-key="reviewsSubtitle">Vad kunder uppskattar hos oss.</p>
   </div>
 
   <div class="cards">
-    <div class="review-card"><p data-key="review1">“Bilen fick en helt ny känsla efter poleringen. Glansen blev mycket bättre än jag förväntade mig.”</p><strong>– Johan</strong></div>
-    <div class="review-card"><p data-key="review2">“Smidig kontakt och noggrant arbete. Väldigt bra att de kunde komma hem och hjälpa till.”</p><strong>– Mikael</strong></div>
-    <div class="review-card"><p data-key="review3">“Det märks att de har lång erfarenhet. Bilen blev mycket finare och kändes fräsch igen.”</p><strong>– Erik</strong></div>
+    <div class="review-card">
+      <p data-key="review1">“Bilen fick en helt ny känsla efter poleringen. Väldigt nöjd.”</p>
+      <strong>– Johan</strong>
+    </div>
+
+    <div class="review-card">
+      <p data-key="review2">“Smidig kontakt och noggrant arbete. Extra bra att de kunde komma hem.”</p>
+      <strong>– Mikael</strong>
+    </div>
+
+    <div class="review-card">
+      <p data-key="review3">“Det märks att de har erfarenhet. Bilen blev mycket finare.”</p>
+      <strong>– Erik</strong>
+    </div>
   </div>
 </section>
 
 <section class="booking" id="bokning">
   <div class="section-title">
-    <h2 data-key="bookingTitle">Få pris & tid</h2>
-    <p data-key="bookingSubtitle">Fyll i formuläret och skicka gärna bilder på bilen. Vi återkommer med rekommendation, pris och tid.</p>
+    <h2 data-key="bookingTitle">Skicka ärende</h2>
+    <p data-key="bookingSubtitle">
+      Fyll i formuläret och bifoga gärna bilder på bilen. Vi svarar med pris och tid.
+    </p>
   </div>
 
-  <form>
+  <form
+    action="https://formspree.io/f/DIN-KOD-HÄR"
+    method="POST"
+    enctype="multipart/form-data"
+  >
     <label data-key="labelName">Ditt namn</label>
-    <input type="text" placeholder="Skriv ditt namn" data-placeholder-key="placeholderName">
+    <input type="text" name="namn" required placeholder="Skriv ditt namn" data-placeholder-key="placeholderName">
 
     <label data-key="labelPhone">Telefonnummer</label>
-    <input type="tel" placeholder="Skriv ditt telefonnummer" data-placeholder-key="placeholderPhone">
+    <input type="tel" name="telefon" required placeholder="Skriv ditt telefonnummer" data-placeholder-key="placeholderPhone">
+
+    <label data-key="labelEmail">E-post</label>
+    <input type="email" name="email" required placeholder="Skriv din e-post" data-placeholder-key="placeholderEmail">
 
     <label data-key="labelLocation">Var finns bilen?</label>
-    <input type="text" placeholder="Exempel: Kalmar, Nybro, Oskarshamn" data-placeholder-key="placeholderLocation">
+    <input type="text" name="plats" placeholder="Exempel: Kalmar, Nybro, Oskarshamn" data-placeholder-key="placeholderLocation">
 
     <label data-key="labelService">Välj tjänst</label>
-    <select>
+    <select name="tjanst">
       <option data-key="option1">Jag vill ha rekommendation</option>
-      <option data-key="option2">Professionell polering</option>
+      <option data-key="option2">Polering</option>
       <option data-key="option3">Lackförsegling</option>
       <option data-key="option4">Bilvård</option>
       <option data-key="option5">Polering hemma hos mig</option>
     </select>
 
     <label data-key="labelImages">Ladda upp bilder på bilen</label>
-    <input type="file" multiple accept="image/*">
+    <input type="file" name="bilder" multiple accept="image/*">
 
     <label data-key="labelMessage">Meddelande</label>
-    <textarea placeholder="Berätta kort om bilen, skick och vad du vill ha hjälp med" data-placeholder-key="placeholderMessage"></textarea>
+    <textarea name="meddelande" placeholder="Berätta kort om bilen och vad du vill ha hjälp med" data-placeholder-key="placeholderMessage"></textarea>
 
-    <a href="tel:0729360681" class="button">Ring 072-936 06 81</a>
-    <a href="tel:0723841211" class="button">Ring 072-384 12 11</a>
+    <button class="button" type="submit" data-key="sendButton">Skicka ärende</button>
 
-    <p class="form-note" data-key="formNote">Obs: Formuläret är designat men skickar inte automatiskt ännu. För att kunder ska kunna skicka formulär och bilder på riktigt behöver vi koppla det till e-post, Formspree, Netlify Forms eller ett bokningssystem.</p>
+    <p class="form-note" data-key="formNote">
+      Viktigt: byt DIN-KOD-HÄR till din riktiga Formspree-länk. Annars skickas inte formuläret.
+    </p>
   </form>
 </section>
 
 <section class="map">
   <div class="section-title">
     <h2 data-key="mapTitle">Polering i Kalmar län</h2>
-    <p data-key="mapSubtitle">Vi hjälper kunder med polering, bilvård och lackförsegling i Kalmar län.</p>
+    <p data-key="mapSubtitle">Vi hjälper kunder i Kalmar län.</p>
   </div>
+
   <div class="map-box">
     <iframe src="https://www.google.com/maps?q=Kalmar%20l%C3%A4n&output=embed" loading="lazy"></iframe>
   </div>
@@ -209,76 +595,232 @@
     <p data-key="faqSubtitle">Snabba svar innan du bokar.</p>
   </div>
 
-  <details><summary data-key="faq1q">Kan ni komma hem till mig?</summary><p data-key="faq1a">Ja. Vi kan komma hem till dig och polera bilen där den finns.</p></details>
-  <details><summary data-key="faq2q">Vad är lackförsegling?</summary><p data-key="faq2a">Lackförsegling är en skyddsbehandling som appliceras på bilens befintliga lack. Det är inte lackering och inte målning.</p></details>
-  <details><summary data-key="faq3q">Kan jag skicka bilder på bilen?</summary><p data-key="faq3a">Ja. Skicka gärna bilder så kan vi lättare rekommendera rätt tjänst, pris och tid.</p></details>
-  <details><summary data-key="faq4q">Hur bokar jag?</summary><p data-key="faq4a">Ring 072-936 06 81 eller 072-384 12 11 så hjälper vi dig vidare.</p></details>
+  <details>
+    <summary data-key="faq1q">Kan ni komma hem till mig?</summary>
+    <p data-key="faq1a">Ja, vi kan komma hem till dig och utföra tjänsten där bilen finns.</p>
+  </details>
+
+  <details>
+    <summary data-key="faq2q">Vad är lackförsegling?</summary>
+    <p data-key="faq2a">Det är en skyddsbehandling som appliceras på bilens befintliga lack.</p>
+  </details>
+
+  <details>
+    <summary data-key="faq3q">Kan jag skicka bilder?</summary>
+    <p data-key="faq3a">Ja, bifoga gärna bilder så kan vi rekommendera rätt tjänst.</p>
+  </details>
 </section>
 
 <section class="contact" id="kontakt">
   <h2 data-key="contactTitle">Kontakta JHL Glans AB</h2>
-  <p data-key="contactText">Vi är bara ett samtal bort. Ring oss så löser vi rätt tjänst för din bil.</p>
-  <div class="phone">072-936 06 81<br>072-384 12 11</div>
+  <p data-key="contactText">Vi är bara ett samtal bort.</p>
+
+  <div class="phone">
+    072-936 06 81<br>
+    072-384 12 11
+  </div>
+
   <a href="tel:0729360681" class="button">Ring 072-936 06 81</a>
   <a href="tel:0723841211" class="button">Ring 072-384 12 11</a>
 </section>
 
 <footer>
-  <p data-key="footerText">© 2026 JHL Glans AB | Professionell polering, bilvård och lackförsegling i Kalmar län sedan 2022</p>
+  <p data-key="footerText">© 2026 JHL Glans AB | Polering, bilvård och lackförsegling i Kalmar län</p>
 </footer>
 
 <script>
-const translations={
-sv:{
-navHome:"Hem",navAbout:"Om oss",navServices:"Tjänster",navReviews:"Recensioner",navBooking:"Bokning",navContact:"Kontakt",
-heroBadge:"Professionell polering i Kalmar län",heroTitle:"Polering – få din bil att glänsa.",heroText1:"JHL Glans AB hjälper dig att ge bilen ny glans, bättre känsla och ett mer välvårdat utseende. Med över 12 års erfarenhet inom polering arbetar vi noggrant för att ge bilen en finish som verkligen märks.",highlight1:"Lackförsegling",highlight2:"Polering hemma hos dig",highlight3:"Över 12 års erfarenhet",heroText2:"Vi erbjuder även lackförsegling som hjälper till att skydda bilens lack efter polering. Vill du göra det enkelt? Vi kan komma hem till dig och utföra tjänsten där bilen finns.",heroButton:"Få pris & tid",
-trust1Title:"Sedan 2022",trust1Text:"Verksamhet med fokus på kvalitet.",trust2Title:"12+ år",trust2Text:"Erfarenhet inom polering.",trust3Title:"Hemservice",trust3Text:"Vi kan komma hem till dig.",trust4Title:"Lackförsegling",trust4Text:"Skyddande behandling för bilens lack.",
-aboutTitle:"Om JHL Glans AB",aboutSubtitle:"Professionell bilvård med noggrannhet, kvalitet och känsla för detaljer.",aboutText1:"JHL Glans AB startade sin verksamhet år 2022 och arbetar med professionell polering, bilvård och lackförsegling i Kalmar län.",aboutText2:"Personen som arbetar med polering har mer än 12 års erfarenhet och vet hur bilens yta ska behandlas för att få fram glans, djup och en bättre finish.",aboutText3:"Vårt mål är att bilen inte bara ska se renare ut, utan kännas bättre, fräschare och mer välvårdad. Vi vill att kunden ska känna att något nytt har hänt med bilen.",aboutText4:"För att göra det smidigare för dig kan vi även erbjuda polering hemma hos dig. Du kontaktar oss, skickar gärna bilder på bilen, och vi hjälper dig med rekommendation, pris och tid.",
-servicesTitle:"Våra tjänster",servicesSubtitle:"Vi fokuserar på polering, bilvård och lackförsegling. Varje behandling anpassas efter bilens skick och vad du vill uppnå.",
-service1Title:"Professionell polering",service1Text1:"För dig som vill få bilen att glänsa igen. Vi arbetar noggrant med bilens yta för att ta fram glans, djup och en renare känsla.",service1Text2:"Polering kan göra stor skillnad på bilens helhetsintryck. Bilen känns fräschare, mer välvårdad och får en finish som verkligen märks.",
-service2Title:"Lackförsegling",service2Text1:"Lackförsegling är inte målning och inte lackering. Det är en behandling som appliceras på bilens befintliga lack för att skydda ytan.",service2Text2:"Behandlingen hjälper till att göra bilen lättare att hålla ren och hjälper glansen att hålla längre.",
-service3Title:"Bilvård",service3Text1:"Vi tar hand om bilen med noggrannhet så att den känns fräschare, renare och trevligare att använda.",
-service4Title:"Polering hemma hos dig",service4Text1:"Vi kan komma hem till dig och polera bilen där den står.",service4Text2:"Du behöver bara kontakta oss, skicka gärna bilder på bilen och berätta vad du vill ha hjälp med.",
-service5Title:"Rekommendation efter bilder",service5Text1:"Skicka bilder på bilen. Då kan vi enklare se bilens skick och rekommendera rätt tjänst, pris och tid.",
-service6Title:"Personlig service",service6Text1:"Vi är bara ett samtal bort. Vår service bygger på enkel kontakt, tydlig kommunikation och ett resultat kunden känner direkt.",
-homeTitle:"Vi kan komma hem till dig",homeText:"Vill du slippa åka iväg med bilen? JHL Glans AB kan erbjuda polering hemma hos dig. Vi tar med oss erfarenheten, noggrannheten och känslan för detaljer direkt till platsen där bilen finns.",
-reviewsTitle:"Kundrecensioner",reviewsSubtitle:"Exempel på vad kunder uppskattar hos JHL Glans AB.",review1:"“Bilen fick en helt ny känsla efter poleringen. Glansen blev mycket bättre än jag förväntade mig.”",review2:"“Smidig kontakt och noggrant arbete. Väldigt bra att de kunde komma hem och hjälpa till.”",review3:"“Det märks att de har lång erfarenhet. Bilen blev mycket finare och kändes fräsch igen.”",
-bookingTitle:"Få pris & tid",bookingSubtitle:"Fyll i formuläret och skicka gärna bilder på bilen. Vi återkommer med rekommendation, pris och tid.",labelName:"Ditt namn",labelPhone:"Telefonnummer",labelLocation:"Var finns bilen?",labelService:"Välj tjänst",labelImages:"Ladda upp bilder på bilen",labelMessage:"Meddelande",placeholderName:"Skriv ditt namn",placeholderPhone:"Skriv ditt telefonnummer",placeholderLocation:"Exempel: Kalmar, Nybro, Oskarshamn",placeholderMessage:"Berätta kort om bilen, skick och vad du vill ha hjälp med",option1:"Jag vill ha rekommendation",option2:"Professionell polering",option3:"Lackförsegling",option4:"Bilvård",option5:"Polering hemma hos mig",formNote:"Obs: Formuläret är designat men skickar inte automatiskt ännu. För att kunder ska kunna skicka formulär och bilder på riktigt behöver vi koppla det till e-post, Formspree, Netlify Forms eller ett bokningssystem.",
-mapTitle:"Polering i Kalmar län",mapSubtitle:"Vi hjälper kunder med polering, bilvård och lackförsegling i Kalmar län.",
-faqTitle:"Vanliga frågor",faqSubtitle:"Snabba svar innan du bokar.",faq1q:"Kan ni komma hem till mig?",faq1a:"Ja. Vi kan komma hem till dig och polera bilen där den finns.",faq2q:"Vad är lackförsegling?",faq2a:"Lackförsegling är en skyddsbehandling som appliceras på bilens befintliga lack. Det är inte lackering och inte målning.",faq3q:"Kan jag skicka bilder på bilen?",faq3a:"Ja. Skicka gärna bilder så kan vi lättare rekommendera rätt tjänst, pris och tid.",faq4q:"Hur bokar jag?",faq4a:"Ring 072-936 06 81 eller 072-384 12 11 så hjälper vi dig vidare.",
-contactTitle:"Kontakta JHL Glans AB",contactText:"Vi är bara ett samtal bort. Ring oss så löser vi rätt tjänst för din bil.",footerText:"© 2026 JHL Glans AB | Professionell polering, bilvård och lackförsegling i Kalmar län sedan 2022"
-},
-en:{
-navHome:"Home",navAbout:"About us",navServices:"Services",navReviews:"Reviews",navBooking:"Booking",navContact:"Contact",
-heroBadge:"Professional car polishing in Kalmar County",heroTitle:"Car polishing – make your car shine.",heroText1:"JHL Glans AB helps you give your car a fresh shine, a better feel and a more well-maintained appearance. With over 12 years of polishing experience, we work carefully to deliver a finish you can truly notice.",highlight1:"Paint sealant",highlight2:"Polishing at your home",highlight3:"Over 12 years of experience",heroText2:"We also offer paint sealant to help protect your car’s paint after polishing. Want to make it easy? We can come to your home and perform the service where the car is located.",heroButton:"Get price & time",
-trust1Title:"Since 2022",trust1Text:"A business focused on quality.",trust2Title:"12+ years",trust2Text:"Experience in car polishing.",trust3Title:"Home service",trust3Text:"We can come to your home.",trust4Title:"Paint sealant",trust4Text:"Protective treatment for your car’s paint.",
-aboutTitle:"About JHL Glans AB",aboutSubtitle:"Professional car care with precision, quality and attention to detail.",aboutText1:"JHL Glans AB started its business in 2022 and works with professional car polishing, car care and paint sealant in Kalmar County.",aboutText2:"The person working with polishing has more than 12 years of experience and knows how to treat the car’s surface to bring out shine, depth and a better finish.",aboutText3:"Our goal is for the car not only to look cleaner, but to feel better, fresher and more well-maintained. We want the customer to feel that something new has happened to the car.",aboutText4:"To make it easier for you, we can also offer polishing at your home. Contact us, preferably send photos of the car, and we will help you with a recommendation, price and time.",
-servicesTitle:"Our services",servicesSubtitle:"We focus on polishing, car care and paint sealant. Each treatment is adapted to the condition of the car and the result you want.",
-service1Title:"Professional polishing",service1Text1:"For you who want your car to shine again. We carefully work with the surface to bring out shine, depth and a cleaner feeling.",service1Text2:"Polishing can make a big difference to the overall impression of the car. It feels fresher, more cared for and gets a finish you can really notice.",
-service2Title:"Paint sealant",service2Text1:"Paint sealant is not painting or repainting. It is a treatment applied to the car’s existing paint to help protect the surface.",service2Text2:"The treatment helps make the car easier to keep clean and helps the shine last longer.",
-service3Title:"Car care",service3Text1:"We take care of your car carefully so it feels fresher, cleaner and more pleasant to use.",
-service4Title:"Polishing at your home",service4Text1:"We can come to your home and polish the car where it is parked.",service4Text2:"Simply contact us, preferably send photos of the car and tell us what you need help with.",
-service5Title:"Recommendation from photos",service5Text1:"Send photos of the car. This helps us understand the condition and recommend the right service, price and time.",
-service6Title:"Personal service",service6Text1:"We are only one call away. Our service is based on easy contact, clear communication and a result the customer can feel directly.",
-homeTitle:"We can come to your home",homeText:"Want to avoid taking the car somewhere? JHL Glans AB can offer polishing at your home. We bring the experience, precision and attention to detail directly to the place where the car is located.",
-reviewsTitle:"Customer reviews",reviewsSubtitle:"Examples of what customers appreciate about JHL Glans AB.",review1:"“The car felt completely different after the polishing. The shine was much better than I expected.”",review2:"“Easy contact and careful work. It was great that they could come home and help.”",review3:"“You can tell they have long experience. The car looked much better and felt fresh again.”",
-bookingTitle:"Get price & time",bookingSubtitle:"Fill in the form and preferably upload photos of the car. We will get back to you with a recommendation, price and time.",labelName:"Your name",labelPhone:"Phone number",labelLocation:"Where is the car located?",labelService:"Choose service",labelImages:"Upload photos of the car",labelMessage:"Message",placeholderName:"Write your name",placeholderPhone:"Write your phone number",placeholderLocation:"Example: Kalmar, Nybro, Oskarshamn",placeholderMessage:"Tell us briefly about the car, its condition and what you need help with",option1:"I want a recommendation",option2:"Professional polishing",option3:"Paint sealant",option4:"Car care",option5:"Polishing at my home",formNote:"Note: The form is designed but does not send automatically yet. To let customers send forms and photos for real, we need to connect it to email, Formspree, Netlify Forms or a booking system.",
-mapTitle:"Car polishing in Kalmar County",mapSubtitle:"We help customers with polishing, car care and paint sealant in Kalmar County.",
-faqTitle:"Frequently asked questions",faqSubtitle:"Quick answers before you book.",faq1q:"Can you come to my home?",faq1a:"Yes. We can come to your home and polish the car where it is located.",faq2q:"What is paint sealant?",faq2a:"Paint sealant is a protective treatment applied to the car’s existing paint. It is not repainting or painting.",faq3q:"Can I send photos of the car?",faq3a:"Yes. Please send photos so we can more easily recommend the right service, price and time.",faq4q:"How do I book?",faq4a:"Call 072-936 06 81 or 072-384 12 11 and we will help you.",
-contactTitle:"Contact JHL Glans AB",contactText:"We are only one call away. Call us and we will find the right service for your car.",footerText:"© 2026 JHL Glans AB | Professional polishing, car care and paint sealant in Kalmar County since 2022"
-}
+const translations = {
+  sv: {
+    navHome: "Hem",
+    navAbout: "Om oss",
+    navServices: "Tjänster",
+    navReviews: "Recensioner",
+    navBooking: "Bokning",
+    navContact: "Kontakt",
+
+    heroBadge: "Professionell polering i Kalmar län",
+    heroTitle: "Polering – få din bil att glänsa.",
+    heroText: "Professionell polering, bilvård och lackförsegling. Över 12 års erfarenhet. Vi kan även komma hem till dig och utföra tjänsten där bilen finns.",
+    heroButton: "Få pris & tid",
+
+    trust1Title: "Sedan 2022",
+    trust1Text: "Fokus på kvalitet.",
+    trust2Title: "12+ år",
+    trust2Text: "Erfarenhet inom polering.",
+    trust3Title: "Hemservice",
+    trust3Text: "Vi kan komma hem till dig.",
+    trust4Title: "Lackförsegling",
+    trust4Text: "Skyddar bilens lack.",
+
+    aboutTitle: "Om JHL Glans AB",
+    aboutSubtitle: "Noggrann bilvård med professionell finish.",
+    aboutText1: "JHL Glans AB startade sin verksamhet år 2022 och arbetar med polering, bilvård och lackförsegling i Kalmar län.",
+    aboutText2: "Personen som arbetar med polering har mer än 12 års erfarenhet och vet hur bilens yta ska behandlas för att få fram glans, djup och en bättre finish.",
+    aboutText3: "Skicka gärna bilder på bilen, så hjälper vi dig med rekommendation, pris och tid.",
+
+    servicesTitle: "Våra tjänster",
+    servicesSubtitle: "Enkla tjänster med tydligt resultat.",
+    service1Title: "Polering",
+    service1Text: "Vi tar fram bilens glans, djup och fräscha känsla. Perfekt när bilen ska kännas ny igen.",
+    service2Title: "Lackförsegling",
+    service2Text: "En skyddsbehandling på bilens befintliga lack. Det är inte lackering eller målning.",
+    service3Title: "Bilvård",
+    service3Text: "Noggrann rengöring och vård som gör bilen fräschare och trevligare att använda.",
+    service4Title: "Polering hemma hos dig",
+    service4Text: "Vi kan komma hem till dig och utföra jobbet där bilen står.",
+
+    homeTitle: "Vi kan komma hem till dig",
+    homeText: "Vill du slippa åka iväg med bilen? Kontakta oss, skicka bilder och berätta vad du behöver. Vi återkommer med rekommendation, pris och tid.",
+
+    reviewsTitle: "Kundrecensioner",
+    reviewsSubtitle: "Vad kunder uppskattar hos oss.",
+    review1: "“Bilen fick en helt ny känsla efter poleringen. Väldigt nöjd.”",
+    review2: "“Smidig kontakt och noggrant arbete. Extra bra att de kunde komma hem.”",
+    review3: "“Det märks att de har erfarenhet. Bilen blev mycket finare.”",
+
+    bookingTitle: "Skicka ärende",
+    bookingSubtitle: "Fyll i formuläret och bifoga gärna bilder på bilen. Vi svarar med pris och tid.",
+    labelName: "Ditt namn",
+    labelPhone: "Telefonnummer",
+    labelEmail: "E-post",
+    labelLocation: "Var finns bilen?",
+    labelService: "Välj tjänst",
+    labelImages: "Ladda upp bilder på bilen",
+    labelMessage: "Meddelande",
+    placeholderName: "Skriv ditt namn",
+    placeholderPhone: "Skriv ditt telefonnummer",
+    placeholderEmail: "Skriv din e-post",
+    placeholderLocation: "Exempel: Kalmar, Nybro, Oskarshamn",
+    placeholderMessage: "Berätta kort om bilen och vad du vill ha hjälp med",
+    option1: "Jag vill ha rekommendation",
+    option2: "Polering",
+    option3: "Lackförsegling",
+    option4: "Bilvård",
+    option5: "Polering hemma hos mig",
+    sendButton: "Skicka ärende",
+    formNote: "Viktigt: byt DIN-KOD-HÄR till din riktiga Formspree-länk. Annars skickas inte formuläret.",
+
+    mapTitle: "Polering i Kalmar län",
+    mapSubtitle: "Vi hjälper kunder i Kalmar län.",
+
+    faqTitle: "Vanliga frågor",
+    faqSubtitle: "Snabba svar innan du bokar.",
+    faq1q: "Kan ni komma hem till mig?",
+    faq1a: "Ja, vi kan komma hem till dig och utföra tjänsten där bilen finns.",
+    faq2q: "Vad är lackförsegling?",
+    faq2a: "Det är en skyddsbehandling som appliceras på bilens befintliga lack.",
+    faq3q: "Kan jag skicka bilder?",
+    faq3a: "Ja, bifoga gärna bilder så kan vi rekommendera rätt tjänst.",
+
+    contactTitle: "Kontakta JHL Glans AB",
+    contactText: "Vi är bara ett samtal bort.",
+    footerText: "© 2026 JHL Glans AB | Polering, bilvård och lackförsegling i Kalmar län"
+  },
+
+  en: {
+    navHome: "Home",
+    navAbout: "About us",
+    navServices: "Services",
+    navReviews: "Reviews",
+    navBooking: "Booking",
+    navContact: "Contact",
+
+    heroBadge: "Professional car polishing in Kalmar County",
+    heroTitle: "Car polishing – make your car shine.",
+    heroText: "Professional polishing, car care and paint sealant. Over 12 years of experience. We can also come to your home and perform the service where the car is located.",
+    heroButton: "Get price & time",
+
+    trust1Title: "Since 2022",
+    trust1Text: "Focus on quality.",
+    trust2Title: "12+ years",
+    trust2Text: "Experience in polishing.",
+    trust3Title: "Home service",
+    trust3Text: "We can come to your home.",
+    trust4Title: "Paint sealant",
+    trust4Text: "Protects your car paint.",
+
+    aboutTitle: "About JHL Glans AB",
+    aboutSubtitle: "Careful car care with professional finish.",
+    aboutText1: "JHL Glans AB started in 2022 and works with polishing, car care and paint sealant in Kalmar County.",
+    aboutText2: "The person working with polishing has more than 12 years of experience and knows how to bring out shine, depth and a better finish.",
+    aboutText3: "Please send photos of the car, and we will help with recommendation, price and time.",
+
+    servicesTitle: "Our services",
+    servicesSubtitle: "Simple services with clear results.",
+    service1Title: "Polishing",
+    service1Text: "We bring out shine, depth and a fresh feeling. Perfect when your car should feel new again.",
+    service2Title: "Paint sealant",
+    service2Text: "A protective treatment on the existing paint. It is not repainting or painting.",
+    service3Title: "Car care",
+    service3Text: "Careful cleaning and treatment that makes the car fresher and more pleasant to use.",
+    service4Title: "Polishing at your home",
+    service4Text: "We can come to your home and perform the work where the car is parked.",
+
+    homeTitle: "We can come to your home",
+    homeText: "Want to avoid taking the car somewhere? Contact us, send photos and tell us what you need. We will reply with recommendation, price and time.",
+
+    reviewsTitle: "Customer reviews",
+    reviewsSubtitle: "What customers appreciate about us.",
+    review1: "“The car felt completely different after polishing. Very satisfied.”",
+    review2: "“Easy contact and careful work. Great that they could come home.”",
+    review3: "“You can tell they have experience. The car looked much better.”",
+
+    bookingTitle: "Send request",
+    bookingSubtitle: "Fill in the form and preferably attach photos of the car. We reply with price and time.",
+    labelName: "Your name",
+    labelPhone: "Phone number",
+    labelEmail: "Email",
+    labelLocation: "Where is the car located?",
+    labelService: "Choose service",
+    labelImages: "Upload photos of the car",
+    labelMessage: "Message",
+    placeholderName: "Write your name",
+    placeholderPhone: "Write your phone number",
+    placeholderEmail: "Write your email",
+    placeholderLocation: "Example: Kalmar, Nybro, Oskarshamn",
+    placeholderMessage: "Tell us briefly about the car and what you need help with",
+    option1: "I want a recommendation",
+    option2: "Polishing",
+    option3: "Paint sealant",
+    option4: "Car care",
+    option5: "Polishing at my home",
+    sendButton: "Send request",
+    formNote: "Important: replace DIN-KOD-HÄR with your real Formspree link. Otherwise the form will not send.",
+
+    mapTitle: "Car polishing in Kalmar County",
+    mapSubtitle: "We help customers in Kalmar County.",
+
+    faqTitle: "Frequently asked questions",
+    faqSubtitle: "Quick answers before booking.",
+    faq1q: "Can you come to my home?",
+    faq1a: "Yes, we can come to your home and perform the service where the car is located.",
+    faq2q: "What is paint sealant?",
+    faq2a: "It is a protective treatment applied to the car’s existing paint.",
+    faq3q: "Can I send photos?",
+    faq3a: "Yes, please attach photos so we can recommend the right service.",
+
+    contactTitle: "Contact JHL Glans AB",
+    contactText: "We are only one call away.",
+    footerText: "© 2026 JHL Glans AB | Polishing, car care and paint sealant in Kalmar County"
+  }
 };
 
-function setLanguage(language){
-document.documentElement.lang=language;
-document.querySelectorAll("[data-key]").forEach(el=>{
-const key=el.getAttribute("data-key");
-if(translations[language][key]) el.textContent=translations[language][key];
-});
-document.querySelectorAll("[data-placeholder-key]").forEach(el=>{
-const key=el.getAttribute("data-placeholder-key");
-if(translations[language][key]) el.placeholder=translations[language][key];
-});
+function setLanguage(language) {
+  document.documentElement.lang = language;
+
+  document.querySelectorAll("[data-key]").forEach(element => {
+    const key = element.getAttribute("data-key");
+    if (translations[language][key]) {
+      element.textContent = translations[language][key];
+    }
+  });
+
+  document.querySelectorAll("[data-placeholder-key]").forEach(element => {
+    const key = element.getAttribute("data-placeholder-key");
+    if (translations[language][key]) {
+      element.placeholder = translations[language][key];
+    }
+  });
 }
 </script>
 
