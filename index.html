@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Polering Kalmar Län | JHL Glans AB</title>
-  <meta name="description" content="JHL Glans AB erbjuder professionell polering, bilvård och lackförsegling i Kalmar län. Över 12 års erfarenhet. Vi kan komma hem till dig.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JHL Glans AB | Polering i Kalmar län</title>
+  <meta name="description" content="JHL Glans AB erbjuder professionell polering, bilvård och lackförsegling i Kalmar län. Över 12 års erfarenhet. Vi kan komma hem till dig." />
 
   <style>
     * {
@@ -19,255 +18,386 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #f6f3ee;
-      color: #1f2933;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: #0f172a; /* lighter dark blue */
+      color: #ffffff;
       line-height: 1.6;
     }
 
+    a {
+      color: inherit;
+    }
+
     header {
-      background: #ffffff;
-      padding: 18px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
+      width: 100%;
+      position: fixed;
       top: 0;
-      z-index: 100;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      border-bottom: 3px solid #b08d57;
+      left: 0;
+      z-index: 999;
+      background: rgba(15, 23, 42, 0.85); /* lighter */
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(125, 211, 252, 0.35);
+      padding: 18px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .logo {
-      font-size: 26px;
+      font-size: 30px;
       font-weight: 900;
-      color: #111827;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .logo span {
-      color: #b08d57;
+      color: #7dd3fc;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
     }
 
     nav a {
-      color: #111827;
       text-decoration: none;
-      margin-left: 18px;
-      font-weight: bold;
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #f8fafc;
+      transition: 0.25s ease;
     }
 
-    nav a:hover {
-      color: #b08d57;
+    nav a:hover,
+    nav a.active-link {
+      color: #7dd3fc;
     }
 
-    .lang-btn {
-      background: #111827;
-      color: white;
-      border: none;
-      padding: 7px 10px;
-      border-radius: 5px;
-      margin-left: 5px;
+    nav a.active-link {
+      position: relative;
+    }
+
+    nav a.active-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -7px;
+      height: 2px;
+      background: #7dd3fc;
+      border-radius: 999px;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lang-btn,
+    .menu-btn {
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      background: transparent;
+      color: #ffffff;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 900;
       cursor: pointer;
-      font-weight: bold;
+      transition: 0.25s ease;
+    }
+
+    .lang-btn.active,
+    .lang-btn:hover,
+    .menu-btn:hover {
+      background: linear-gradient(135deg, #7dd3fc, #0284c7);
+      border-color: #7dd3fc;
+      color: #ffffff;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 24px;
+      line-height: 1;
     }
 
     .hero {
-      min-height: 82vh;
-      background:
-        linear-gradient(90deg, rgba(17,24,39,0.88), rgba(17,24,39,0.55)),
-        url("https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2") center/cover;
-      color: white;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
       display: flex;
       align-items: center;
-      padding: 90px 8%;
+      padding: 145px 6% 70px;
+      background:
+        linear-gradient(90deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.75) 42%, rgba(15, 23, 42, 0.35) 72%, rgba(15, 23, 42, 0.7) 100%),
+        url("https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=1800&q=85") center right / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 76% 42%, rgba(125, 211, 252, 0.26), transparent 34%),
+        linear-gradient(0deg, rgba(15, 23, 42, 0.9), transparent 22%);
+      pointer-events: none;
     }
 
     .hero-content {
-      max-width: 850px;
+      position: relative;
+      z-index: 2;
+      max-width: 790px;
     }
 
     .badge {
-      display: inline-block;
-      border: 1px solid #d6b06d;
-      color: #f5d49a;
-      padding: 8px 16px;
-      border-radius: 30px;
-      margin-bottom: 20px;
-      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #7dd3fc;
+      color: #7dd3fc;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 28px;
+      background: rgba(7, 11, 18, 0.45);
     }
 
     .hero h1 {
-      font-size: 56px;
-      line-height: 1.1;
-      margin-bottom: 20px;
+      font-size: clamp(44px, 7.2vw, 96px);
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: -2.2px;
+      margin-bottom: 24px;
+      text-shadow: 0 14px 40px rgba(0,0,0,0.62);
+    }
+
+    .hero h1 span {
+      display: block;
+      background: linear-gradient(135deg, #bae6fd, #0284c7 58%, #7dd3fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .hero p {
-      font-size: 21px;
+      max-width: 650px;
       color: #f1f5f9;
-      max-width: 760px;
-      margin-bottom: 28px;
+      font-size: clamp(18px, 2.2vw, 24px);
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 46px;
     }
 
     .button {
-      display: inline-block;
-      background: #b08d57;
-      color: white;
-      padding: 14px 26px;
-      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 56px;
+      padding: 14px 24px;
+      border-radius: 999px;
       text-decoration: none;
-      font-weight: bold;
-      border: 2px solid #b08d57;
-      margin: 5px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: 0.25s ease;
       cursor: pointer;
     }
 
+    .button-primary {
+      background: linear-gradient(135deg, #7dd3fc, #0284c7);
+      color: #ffffff;
+      border: 2px solid #7dd3fc;
+      box-shadow: 0 16px 34px rgba(125, 211, 252, 0.22);
+    }
+
+    .button-secondary {
+      background: rgba(15, 23, 42, 0.45);
+      color: #ffffff;
+      border: 2px solid #7dd3fc;
+    }
+
     .button:hover {
-      background: #111827;
-      border-color: #111827;
+      transform: translateY(-3px);
+      filter: brightness(1.08);
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(120px, 1fr));
+      gap: 0;
+      max-width: 760px;
+      background: rgba(8, 18, 31, 0.62);
+      border: 1px solid rgba(186, 230, 253, 0.18);
+      border-radius: 18px;
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+
+    .trust-item {
+      padding: 20px 18px;
+      text-align: center;
+      border-right: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .trust-item:last-child {
+      border-right: none;
+    }
+
+    .trust-icon {
+      font-size: 30px;
+      color: #7dd3fc;
+      margin-bottom: 8px;
+    }
+
+    .trust-item h3 {
+      font-size: 15px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .trust-item p {
+      font-size: 14px;
+      color: #e5e7eb;
+      margin: 0;
+    }
+
+    .side-card {
+      position: absolute;
+      z-index: 3;
+      right: 6%;
+      bottom: 70px;
+      width: 330px;
+      background: rgba(15, 23, 42, 0.65); /* lighter */
+      border: 1px solid rgba(125, 211, 252, 0.6);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.38);
+      backdrop-filter: blur(12px);
+    }
+
+    .side-card h2 {
+      color: #bae6fd;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .side-card p {
+      color: #e5e7eb;
+      font-size: 15px;
+      margin-bottom: 14px;
+    }
+
+    .side-card a {
+      display: block;
+      text-decoration: none;
+      font-weight: 900;
+      color: #ffffff;
+      margin-top: 7px;
     }
 
     section {
-      padding: 70px 8%;
+      padding: 90px 6%;
+      background: #f4f8fb;
+      color: #111827;
+      scroll-margin-top: 95px;
     }
 
     .section-title {
+      max-width: 850px;
+      margin: 0 auto 35px;
       text-align: center;
-      margin-bottom: 38px;
     }
 
     .section-title h2 {
-      font-size: 36px;
-      color: #111827;
+      font-size: clamp(34px, 5vw, 54px);
       margin-bottom: 10px;
     }
 
     .section-title p {
       color: #64748b;
       font-size: 18px;
-      max-width: 760px;
-      margin: auto;
-    }
-
-    .trust {
-      background: white;
-      padding: 28px 8%;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-    }
-
-    .trust-box {
-      text-align: center;
-      padding: 18px;
-    }
-
-    .trust-box h3 {
-      color: #b08d57;
-      font-size: 24px;
-      margin-bottom: 6px;
-    }
-
-    .about-box {
-      max-width: 1000px;
-      margin: auto;
-      background: white;
-      padding: 38px;
-      border-radius: 14px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      border-left: 6px solid #b08d57;
-    }
-
-    .about-box p {
-      margin-bottom: 14px;
-      font-size: 18px;
-    }
-
-    .services,
-    .reviews,
-    .faq {
-      background: white;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
     }
 
     .card {
-      background: #f8fafc;
-      padding: 30px;
-      border-radius: 14px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e2e8f0;
+      border-left: 5px solid #0284c7;
     }
 
     .card h3 {
-      font-size: 24px;
       margin-bottom: 10px;
-      color: #111827;
+      font-size: 23px;
     }
 
-    .home-service {
-      background: linear-gradient(135deg, #111827, #263241);
-      color: white;
+    .booking-strip {
+      background: linear-gradient(135deg, #0f172a, #1e293b); /* lighter */
+      color: #ffffff;
       text-align: center;
     }
 
-    .home-service h2 {
-      color: #f5d49a;
-      font-size: 40px;
-      margin-bottom: 15px;
-    }
-
-    .home-service p {
-      max-width: 850px;
-      margin: auto;
-      font-size: 20px;
-      color: #f1f5f9;
-    }
-
-    .review-card {
-      background: #f8fafc;
-      padding: 28px;
-      border-radius: 14px;
-      border-left: 5px solid #b08d57;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    }
-
-    .review-card p {
-      font-style: italic;
+    .booking-strip h2 {
+      color: #bae6fd;
+      font-size: clamp(34px, 5vw, 52px);
       margin-bottom: 12px;
     }
 
-    .booking {
-      background: #111827;
-      color: white;
-    }
-
-    .booking .section-title h2 {
-      color: #f5d49a;
-    }
-
-    .booking .section-title p {
+    .booking-strip p {
+      max-width: 760px;
+      margin: 0 auto 24px;
       color: #e5e7eb;
+      font-size: 19px;
     }
 
-    form {
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      padding: 35px;
-      border-radius: 14px;
+    .booking-form {
+      max-width: 900px;
+      margin: 34px auto 0;
+      background: #ffffff;
       color: #111827;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.18);
+      padding: 34px;
+      border-radius: 20px;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.28);
+      text-align: left;
+      border: 1px solid rgba(125, 211, 252, 0.45);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
     }
 
     label {
       display: block;
-      font-weight: bold;
-      margin-bottom: 6px;
+      font-weight: 900;
+      margin-bottom: 7px;
+      color: #111827;
     }
 
     input,
@@ -275,554 +405,540 @@
     textarea {
       width: 100%;
       padding: 14px;
-      margin-bottom: 18px;
       border: 1px solid #cbd5e1;
-      border-radius: 6px;
+      border-radius: 9px;
       font-size: 16px;
+      font-family: inherit;
+      background: #f8fafc;
+      color: #111827;
     }
 
     textarea {
-      height: 125px;
+      min-height: 130px;
       resize: vertical;
     }
 
-    .form-note {
-      font-size: 14px;
-      color: #64748b;
-      margin-top: 12px;
-    }
-
-    .map {
-      background: #f6f3ee;
-    }
-
-    .map-box {
-      max-width: 1000px;
-      margin: auto;
-      background: white;
-      padding: 18px;
-      border-radius: 14px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-
-    iframe {
-      width: 100%;
-      height: 360px;
-      border: 0;
-      border-radius: 10px;
-    }
-
-    details {
-      max-width: 900px;
-      margin: 14px auto;
-      background: #f8fafc;
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid #e5e7eb;
-    }
-
-    summary {
-      font-weight: bold;
+    input[type="file"] {
+      background: #ffffff;
+      border: 2px dashed #0284c7;
       cursor: pointer;
     }
 
-    details p {
-      margin-top: 10px;
-      color: #475569;
+    .form-note {
+      color: #64748b !important;
+      font-size: 14px !important;
+      margin: 12px 0 0 !important;
+      max-width: none !important;
     }
 
-    .contact {
-      background: #111827;
-      color: white;
-      text-align: center;
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-top: 8px;
     }
 
-    .contact h2 {
-      color: #f5d49a;
-      font-size: 38px;
-      margin-bottom: 12px;
-    }
-
-    .phone {
-      font-size: 28px;
-      font-weight: bold;
-      margin: 22px 0;
+    .form-actions .button {
+      border: none;
     }
 
     footer {
-      background: #070b12;
+      background: #0f172a; /* lighter */
       color: #cbd5e1;
       text-align: center;
-      padding: 25px;
-      border-top: 3px solid #b08d57;
+      padding: 28px 6%;
+      border-top: 2px solid #0284c7;
     }
 
-    @media(max-width: 900px) {
+    @media (max-width: 1100px) {
+      .side-card {
+        display: none;
+      }
+    }
+
+    @media (max-width: 900px) {
       header {
-        flex-direction: column;
-        gap: 14px;
+        padding: 14px 5%;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      .menu-btn {
+        display: inline-flex;
       }
 
       nav {
-        text-align: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: rgba(7, 11, 18, 0.98);
+        border-bottom: 1px solid rgba(125, 211, 252, 0.45);
+      }
+
+      nav.active {
+        display: flex;
       }
 
       nav a {
-        margin: 0 6px;
-        font-size: 14px;
+        padding: 16px 6%;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .toolbar-actions {
+        padding: 14px 6%;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .hero {
+        padding: 130px 5% 50px;
+        background-position: center;
       }
 
       .hero h1 {
-        font-size: 38px;
+        letter-spacing: -1.5px;
       }
 
-      .hero p {
-        font-size: 18px;
+      .trust-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .trust-item:nth-child(2) {
+        border-right: none;
+      }
+
+      .trust-item:nth-child(1),
+      .trust-item:nth-child(2) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .trust-row {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      }
+
+      .trust-item:last-child {
+        border-bottom: none;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-form {
+        padding: 24px 18px;
       }
     }
   </style>
 </head>
 
 <body>
+  <header>
+    <div class="logo">JHL <span>Glans</span> AB</div>
 
-<header>
-  <div class="logo">JHL <span>Glans</span> AB</div>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Öppna meny" aria-expanded="false">☰</button>
 
-  <nav>
-    <a href="#hem" data-key="navHome">Hem</a>
-    <a href="#om" data-key="navAbout">Om oss</a>
-    <a href="#tjanster" data-key="navServices">Tjänster</a>
-    <a href="#recensioner" data-key="navReviews">Recensioner</a>
-    <a href="#bokning" data-key="navBooking">Bokning</a>
-    <a href="#kontakt" data-key="navContact">Kontakt</a>
-    <button class="lang-btn" onclick="setLanguage('sv')">SV</button>
-    <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-  </nav>
-</header>
+    <nav id="menu">
+      <a href="#hem" data-key="navHome">Hem</a>
+      <a href="#om" data-key="navAbout">Om oss</a>
+      <a href="#tjanster" data-key="navServices">Tjänster</a>
+      <a href="#bokning" data-key="navBooking">Bokning</a>
+      <a href="#kontakt" data-key="navContact">Kontakt</a>
+    </nav>
 
-<section class="hero" id="hem">
-  <div class="hero-content">
-    <div class="badge" data-key="heroBadge">Professionell polering i Kalmar län</div>
-
-    <h1 data-key="heroTitle">Polering – få din bil att glänsa.</h1>
-
-    <p data-key="heroText">
-      Professionell polering, bilvård och lackförsegling. Över 12 års erfarenhet.
-      Vi kan även komma hem till dig och utföra tjänsten där bilen finns.
-    </p>
-
-    <a href="tel:0729360681" class="button">Ring 072-936 06 81</a>
-    <a href="#bokning" class="button" data-key="heroButton">Få pris & tid</a>
-  </div>
-</section>
-
-<div class="trust">
-  <div class="trust-box">
-    <h3 data-key="trust1Title">Sedan 2022</h3>
-    <p data-key="trust1Text">Fokus på kvalitet.</p>
-  </div>
-
-  <div class="trust-box">
-    <h3 data-key="trust2Title">12+ år</h3>
-    <p data-key="trust2Text">Erfarenhet inom polering.</p>
-  </div>
-
-  <div class="trust-box">
-    <h3 data-key="trust3Title">Hemservice</h3>
-    <p data-key="trust3Text">Vi kan komma hem till dig.</p>
-  </div>
-
-  <div class="trust-box">
-    <h3 data-key="trust4Title">Lackförsegling</h3>
-    <p data-key="trust4Text">Skyddar bilens lack.</p>
-  </div>
-</div>
-
-<section id="om">
-  <div class="section-title">
-    <h2 data-key="aboutTitle">Om JHL Glans AB</h2>
-    <p data-key="aboutSubtitle">Noggrann bilvård med professionell finish.</p>
-  </div>
-
-  <div class="about-box">
-    <p data-key="aboutText1">
-      JHL Glans AB startade sin verksamhet år 2022 och arbetar med polering,
-      bilvård och lackförsegling i Kalmar län.
-    </p>
-
-    <p data-key="aboutText2">
-      Personen som arbetar med polering har mer än 12 års erfarenhet och vet hur
-      bilens yta ska behandlas för att få fram glans, djup och en bättre finish.
-    </p>
-
-    <p data-key="aboutText3">
-      Skicka gärna bilder på bilen, så hjälper vi dig med rekommendation, pris och tid.
-    </p>
-  </div>
-</section>
-
-<section class="services" id="tjanster">
-  <div class="section-title">
-    <h2 data-key="servicesTitle">Våra tjänster</h2>
-    <p data-key="servicesSubtitle">Enkla tjänster med tydligt resultat.</p>
-  </div>
-
-  <div class="cards">
-    <div class="card">
-      <h3 data-key="service1Title">Polering</h3>
-      <p data-key="service1Text">
-        Vi tar fram bilens glans, djup och fräscha känsla. Perfekt när bilen ska kännas ny igen.
-      </p>
+    <div class="toolbar-actions">
+      <button class="lang-btn active" id="svBtn" type="button">SV</button>
+      <button class="lang-btn" id="enBtn" type="button">EN</button>
     </div>
+  </header>
 
-    <div class="card">
-      <h3 data-key="service2Title">Lackförsegling</h3>
-      <p data-key="service2Text">
-        En skyddsbehandling på bilens befintliga lack. Det är inte lackering eller målning.
-      </p>
-    </div>
+  <main>
+    <section class="hero" id="hem">
+      <div class="hero-content">
+        <div class="badge" data-key="heroBadge">Professionell polering i Kalmar län</div>
 
-    <div class="card">
-      <h3 data-key="service3Title">Bilvård</h3>
-      <p data-key="service3Text">
-        Noggrann rengöring och vård som gör bilen fräschare och trevligare att använda.
-      </p>
-    </div>
+        <h1 data-key="heroTitle">Polering – <span>få din bil att glänsa.</span></h1>
 
-    <div class="card">
-      <h3 data-key="service4Title">Polering hemma hos dig</h3>
-      <p data-key="service4Text">
-        Vi kan komma hem till dig och utföra jobbet där bilen står.
-      </p>
-    </div>
-  </div>
-</section>
+        <p data-key="heroText">
+          Professionell polering, bilvård och lackförsegling. Över 12 års erfarenhet.
+          Vi kan även komma hem till dig och utföra tjänsten där bilen finns.
+        </p>
 
-<section class="home-service">
-  <h2 data-key="homeTitle">Vi kan komma hem till dig</h2>
-  <p data-key="homeText">
-    Vill du slippa åka iväg med bilen? Kontakta oss, skicka bilder och berätta vad du behöver.
-    Vi återkommer med rekommendation, pris och tid.
-  </p>
-</section>
+        <div class="hero-buttons">
+          <a href="tel:0729360681" class="button button-primary" data-key="callButton">Ring 072-936 06 81</a>
+          <a href="#bokning" class="button button-secondary" data-key="priceButton">Få pris & tid</a>
+        </div>
 
-<section class="reviews" id="recensioner">
-  <div class="section-title">
-    <h2 data-key="reviewsTitle">Kundrecensioner</h2>
-    <p data-key="reviewsSubtitle">Vad kunder uppskattar hos oss.</p>
-  </div>
+        <div class="trust-row">
+          <div class="trust-item">
+            <div class="trust-icon">01</div>
+            <h3 data-key="trust1Title">Sedan 2022</h3>
+            <p data-key="trust1Text">Fokus på kvalitet.</p>
+          </div>
 
-  <div class="cards">
-    <div class="review-card">
-      <p data-key="review1">“Bilen fick en helt ny känsla efter poleringen. Väldigt nöjd.”</p>
-      <strong>– Johan</strong>
-    </div>
+          <div class="trust-item">
+            <div class="trust-icon">12+</div>
+            <h3 data-key="trust2Title">12+ år</h3>
+            <p data-key="trust2Text">Erfarenhet inom polering.</p>
+          </div>
 
-    <div class="review-card">
-      <p data-key="review2">“Smidig kontakt och noggrant arbete. Extra bra att de kunde komma hem.”</p>
-      <strong>– Mikael</strong>
-    </div>
+          <div class="trust-item">
+            <div class="trust-icon">HEM</div>
+            <h3 data-key="trust3Title">Hemservice</h3>
+            <p data-key="trust3Text">Vi kan komma hem till dig.</p>
+          </div>
 
-    <div class="review-card">
-      <p data-key="review3">“Det märks att de har erfarenhet. Bilen blev mycket finare.”</p>
-      <strong>– Erik</strong>
-    </div>
-  </div>
-</section>
+          <div class="trust-item">
+            <div class="trust-icon">SKYDD</div>
+            <h3 data-key="trust4Title">Lackförsegling</h3>
+            <p data-key="trust4Text">Skyddar bilens lack.</p>
+          </div>
+        </div>
+      </div>
 
-<section class="booking" id="bokning">
-  <div class="section-title">
-    <h2 data-key="bookingTitle">Skicka ärende</h2>
-    <p data-key="bookingSubtitle">
-      Fyll i formuläret och bifoga gärna bilder på bilen. Vi svarar med pris och tid.
-    </p>
-  </div>
+      <aside class="side-card">
+        <h2 data-key="sideTitle">Snabb kontakt</h2>
+        <p data-key="sideText">Skicka bilder på bilen så återkommer vi med rekommendation, pris och tid.</p>
+        <a href="tel:0729360681">072-936 06 81</a>
+        <a href="tel:0723841211">072-384 12 11</a>
+      </aside>
+    </section>
 
-  <form
-    action="https://formspree.io/f/DIN-KOD-HÄR"
-    method="POST"
-    enctype="multipart/form-data"
-  >
-    <label data-key="labelName">Ditt namn</label>
-    <input type="text" name="namn" required placeholder="Skriv ditt namn" data-placeholder-key="placeholderName">
+    <section id="om">
+      <div class="section-title">
+        <h2 data-key="aboutTitle">Om JHL Glans AB</h2>
+        <p data-key="aboutText">JHL Glans AB arbetar med noggrann bilvård, polering och lackförsegling i Kalmar län.</p>
+      </div>
+    </section>
 
-    <label data-key="labelPhone">Telefonnummer</label>
-    <input type="tel" name="telefon" required placeholder="Skriv ditt telefonnummer" data-placeholder-key="placeholderPhone">
+    <section id="tjanster">
+      <div class="section-title">
+        <h2 data-key="servicesTitle">Våra tjänster</h2>
+        <p data-key="servicesText">Enkla tjänster med tydligt resultat och professionell finish.</p>
+      </div>
 
-    <label data-key="labelEmail">E-post</label>
-    <input type="email" name="email" required placeholder="Skriv din e-post" data-placeholder-key="placeholderEmail">
+      <div class="cards">
+        <div class="card">
+          <h3 data-key="service1Title">Polering</h3>
+          <p data-key="service1Text">Vi tar fram bilens glans, djup och fräscha känsla.</p>
+        </div>
+        <div class="card">
+          <h3 data-key="service2Title">Lackförsegling</h3>
+          <p data-key="service2Text">Skyddsbehandling på bilens befintliga lack. Det är inte lackering eller målning.</p>
+        </div>
+        <div class="card">
+          <h3 data-key="service3Title">Bilvård</h3>
+          <p data-key="service3Text">Noggrann rengöring och vård som gör bilen fräschare.</p>
+        </div>
+        <div class="card">
+          <h3 data-key="service4Title">Polering hemma hos dig</h3>
+          <p data-key="service4Text">Vi kan komma hem till dig och utföra jobbet där bilen står.</p>
+        </div>
+      </div>
+    </section>
 
-    <label data-key="labelLocation">Var finns bilen?</label>
-    <input type="text" name="plats" placeholder="Exempel: Kalmar, Nybro, Oskarshamn" data-placeholder-key="placeholderLocation">
+    <section class="booking-strip" id="bokning">
+      <h2 data-key="bookingTitle">Få pris & tid</h2>
+      <p data-key="bookingText">Fyll i formuläret och ladda gärna upp bilder eller dokument. Vi återkommer med rekommendation, pris och tid.</p>
 
-    <label data-key="labelService">Välj tjänst</label>
-    <select name="tjanst">
-      <option data-key="option1">Jag vill ha rekommendation</option>
-      <option data-key="option2">Polering</option>
-      <option data-key="option3">Lackförsegling</option>
-      <option data-key="option4">Bilvård</option>
-      <option data-key="option5">Polering hemma hos mig</option>
-    </select>
+      <form class="booking-form" action="https://formspree.io/f/DIN-KOD-HÄR" method="POST" enctype="multipart/form-data">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="name" data-key="labelName">Ditt namn</label>
+            <input id="name" type="text" name="namn" required placeholder="Skriv ditt namn" data-placeholder-key="placeholderName">
+          </div>
 
-    <label data-key="labelImages">Ladda upp bilder på bilen</label>
-    <input type="file" name="bilder" multiple accept="image/*">
+          <div class="form-group">
+            <label for="phone" data-key="labelPhone">Telefonnummer</label>
+            <input id="phone" type="tel" name="telefon" required placeholder="Skriv ditt telefonnummer" data-placeholder-key="placeholderPhone">
+          </div>
 
-    <label data-key="labelMessage">Meddelande</label>
-    <textarea name="meddelande" placeholder="Berätta kort om bilen och vad du vill ha hjälp med" data-placeholder-key="placeholderMessage"></textarea>
+          <div class="form-group">
+            <label for="email" data-key="labelEmail">E-post</label>
+            <input id="email" type="email" name="email" required placeholder="Skriv din e-post" data-placeholder-key="placeholderEmail">
+          </div>
 
-    <button class="button" type="submit" data-key="sendButton">Skicka ärende</button>
+          <div class="form-group">
+            <label for="location" data-key="labelLocation">Var finns bilen?</label>
+            <input id="location" type="text" name="plats" placeholder="Exempel: Kalmar, Nybro, Oskarshamn" data-placeholder-key="placeholderLocation">
+          </div>
 
-    <p class="form-note" data-key="formNote">
-      Viktigt: byt DIN-KOD-HÄR till din riktiga Formspree-länk. Annars skickas inte formuläret.
-    </p>
-  </form>
-</section>
+          <div class="form-group">
+            <label for="service" data-key="labelService">Välj tjänst</label>
+            <select id="service" name="tjanst">
+              <option data-key="option1">Jag vill ha rekommendation</option>
+              <option data-key="option2">Polering</option>
+              <option data-key="option3">Lackförsegling</option>
+              <option data-key="option4">Bilvård</option>
+              <option data-key="option5">Polering hemma hos mig</option>
+            </select>
+          </div>
 
-<section class="map">
-  <div class="section-title">
-    <h2 data-key="mapTitle">Polering i Kalmar län</h2>
-    <p data-key="mapSubtitle">Vi hjälper kunder i Kalmar län.</p>
-  </div>
+          <div class="form-group">
+            <label for="files" data-key="labelFiles">Ladda upp bilder eller dokument</label>
+            <input id="files" type="file" name="filer" multiple accept="image/*,.pdf,.doc,.docx,.txt">
+          </div>
 
-  <div class="map-box">
-    <iframe src="https://www.google.com/maps?q=Kalmar%20l%C3%A4n&output=embed" loading="lazy"></iframe>
-  </div>
-</section>
+          <div class="form-group full">
+            <label for="message" data-key="labelMessage">Meddelande</label>
+            <textarea id="message" name="meddelande" placeholder="Berätta kort om bilen och vad du vill ha hjälp med" data-placeholder-key="placeholderMessage"></textarea>
+          </div>
+        </div>
 
-<section class="faq">
-  <div class="section-title">
-    <h2 data-key="faqTitle">Vanliga frågor</h2>
-    <p data-key="faqSubtitle">Snabba svar innan du bokar.</p>
-  </div>
+        <div class="form-actions">
+          <button class="button button-primary" type="submit" data-key="sendButton">Skicka ärende</button>
+          <a href="tel:0729360681" class="button button-secondary" data-key="bookingButton">Ring nu</a>
+        </div>
 
-  <details>
-    <summary data-key="faq1q">Kan ni komma hem till mig?</summary>
-    <p data-key="faq1a">Ja, vi kan komma hem till dig och utföra tjänsten där bilen finns.</p>
-  </details>
+        <p class="form-note" data-key="formNote">Viktigt: byt DIN-KOD-HÄR till din riktiga Formspree-länk. Annars skickas inte formuläret.</p>
+      </form>
+    </section>
 
-  <details>
-    <summary data-key="faq2q">Vad är lackförsegling?</summary>
-    <p data-key="faq2a">Det är en skyddsbehandling som appliceras på bilens befintliga lack.</p>
-  </details>
+    <section class="booking-strip" id="kontakt">
+      <h2 data-key="contactTitle">Kontakta JHL Glans AB</h2>
+      <p>072-936 06 81<br>072-384 12 11</p>
+    </section>
+  </main>
 
-  <details>
-    <summary data-key="faq3q">Kan jag skicka bilder?</summary>
-    <p data-key="faq3a">Ja, bifoga gärna bilder så kan vi rekommendera rätt tjänst.</p>
-  </details>
-</section>
+  <footer>
+    <p data-key="footerText">© 2026 JHL Glans AB | Polering, bilvård och lackförsegling i Kalmar län</p>
+  </footer>
 
-<section class="contact" id="kontakt">
-  <h2 data-key="contactTitle">Kontakta JHL Glans AB</h2>
-  <p data-key="contactText">Vi är bara ett samtal bort.</p>
+  <script>
+    const translations = {
+      sv: {
+        navHome: "Hem",
+        navAbout: "Om oss",
+        navServices: "Tjänster",
+        navBooking: "Bokning",
+        navContact: "Kontakt",
+        heroBadge: "Professionell polering i Kalmar län",
+        heroTitle: "Polering – <span>få din bil att glänsa.</span>",
+        heroText: "Professionell polering, bilvård och lackförsegling. Över 12 års erfarenhet. Vi kan även komma hem till dig och utföra tjänsten där bilen finns.",
+        callButton: "Ring 072-936 06 81",
+        priceButton: "Få pris & tid",
+        trust1Title: "Sedan 2022",
+        trust1Text: "Fokus på kvalitet.",
+        trust2Title: "12+ år",
+        trust2Text: "Erfarenhet inom polering.",
+        trust3Title: "Hemservice",
+        trust3Text: "Vi kan komma hem till dig.",
+        trust4Title: "Lackförsegling",
+        trust4Text: "Skyddar bilens lack.",
+        sideTitle: "Snabb kontakt",
+        sideText: "Skicka bilder på bilen så återkommer vi med rekommendation, pris och tid.",
+        aboutTitle: "Om JHL Glans AB",
+        aboutText: "JHL Glans AB arbetar med noggrann bilvård, polering och lackförsegling i Kalmar län.",
+        servicesTitle: "Våra tjänster",
+        servicesText: "Enkla tjänster med tydligt resultat och professionell finish.",
+        service1Title: "Polering",
+        service1Text: "Vi tar fram bilens glans, djup och fräscha känsla.",
+        service2Title: "Lackförsegling",
+        service2Text: "Skyddsbehandling på bilens befintliga lack. Det är inte lackering eller målning.",
+        service3Title: "Bilvård",
+        service3Text: "Noggrann rengöring och vård som gör bilen fräschare.",
+        service4Title: "Polering hemma hos dig",
+        service4Text: "Vi kan komma hem till dig och utföra jobbet där bilen står.",
+        bookingTitle: "Få pris & tid",
+        bookingText: "Fyll i formuläret och ladda gärna upp bilder eller dokument. Vi återkommer med rekommendation, pris och tid.",
+        labelName: "Ditt namn",
+        labelPhone: "Telefonnummer",
+        labelEmail: "E-post",
+        labelLocation: "Var finns bilen?",
+        labelService: "Välj tjänst",
+        labelFiles: "Ladda upp bilder eller dokument",
+        labelMessage: "Meddelande",
+        placeholderName: "Skriv ditt namn",
+        placeholderPhone: "Skriv ditt telefonnummer",
+        placeholderEmail: "Skriv din e-post",
+        placeholderLocation: "Exempel: Kalmar, Nybro, Oskarshamn",
+        placeholderMessage: "Berätta kort om bilen och vad du vill ha hjälp med",
+        option1: "Jag vill ha rekommendation",
+        option2: "Polering",
+        option3: "Lackförsegling",
+        option4: "Bilvård",
+        option5: "Polering hemma hos mig",
+        sendButton: "Skicka ärende",
+        formNote: "Viktigt: byt DIN-KOD-HÄR till din riktiga Formspree-länk. Annars skickas inte formuläret.",
+        bookingButton: "Ring nu",
+        contactTitle: "Kontakta JHL Glans AB",
+        footerText: "© 2026 JHL Glans AB | Polering, bilvård och lackförsegling i Kalmar län"
+      },
+      en: {
+        navHome: "Home",
+        navAbout: "About us",
+        navServices: "Services",
+        navBooking: "Booking",
+        navContact: "Contact",
+        heroBadge: "Professional car polishing in Kalmar County",
+        heroTitle: "Car polishing – <span>make your car shine.</span>",
+        heroText: "Professional polishing, car care and paint sealant. Over 12 years of experience. We can also come to your home and perform the service where the car is located.",
+        callButton: "Call 072-936 06 81",
+        priceButton: "Get price & time",
+        trust1Title: "Since 2022",
+        trust1Text: "Focus on quality.",
+        trust2Title: "12+ years",
+        trust2Text: "Experience in polishing.",
+        trust3Title: "Home service",
+        trust3Text: "We can come to your home.",
+        trust4Title: "Paint sealant",
+        trust4Text: "Protects your car paint.",
+        sideTitle: "Quick contact",
+        sideText: "Send photos of the car and we will reply with recommendation, price and time.",
+        aboutTitle: "About JHL Glans AB",
+        aboutText: "JHL Glans AB works with careful car care, polishing and paint sealant in Kalmar County.",
+        servicesTitle: "Our services",
+        servicesText: "Simple services with clear results and professional finish.",
+        service1Title: "Polishing",
+        service1Text: "We bring out shine, depth and a fresh feeling.",
+        service2Title: "Paint sealant",
+        service2Text: "Protective treatment on the car’s existing paint. It is not repainting or painting.",
+        service3Title: "Car care",
+        service3Text: "Careful cleaning and treatment that makes the car fresher.",
+        service4Title: "Polishing at your home",
+        service4Text: "We can come to your home and perform the work where the car is parked.",
+        bookingTitle: "Get price & time",
+        bookingText: "Fill in the form and feel free to upload photos or documents. We will reply with recommendation, price and time.",
+        labelName: "Your name",
+        labelPhone: "Phone number",
+        labelEmail: "Email",
+        labelLocation: "Where is the car located?",
+        labelService: "Choose service",
+        labelFiles: "Upload photos or documents",
+        labelMessage: "Message",
+        placeholderName: "Write your name",
+        placeholderPhone: "Write your phone number",
+        placeholderEmail: "Write your email",
+        placeholderLocation: "Example: Kalmar, Nybro, Oskarshamn",
+        placeholderMessage: "Tell us briefly about the car and what you need help with",
+        option1: "I want a recommendation",
+        option2: "Polishing",
+        option3: "Paint sealant",
+        option4: "Car care",
+        option5: "Polishing at my home",
+        sendButton: "Send request",
+        formNote: "Important: replace DIN-KOD-HÄR with your real Formspree link. Otherwise the form will not send.",
+        bookingButton: "Call now",
+        contactTitle: "Contact JHL Glans AB",
+        footerText: "© 2026 JHL Glans AB | Polishing, car care and paint sealant in Kalmar County"
+      }
+    };
 
-  <div class="phone">
-    072-936 06 81<br>
-    072-384 12 11
-  </div>
+    const menu = document.getElementById("menu");
+    const menuBtn = document.getElementById("menuBtn");
+    const svBtn = document.getElementById("svBtn");
+    const enBtn = document.getElementById("enBtn");
 
-  <a href="tel:0729360681" class="button">Ring 072-936 06 81</a>
-  <a href="tel:0723841211" class="button">Ring 072-384 12 11</a>
-</section>
+    function closeMenu() {
+      menu.classList.remove("active");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.textContent = "☰";
+    }
 
-<footer>
-  <p data-key="footerText">© 2026 JHL Glans AB | Polering, bilvård och lackförsegling i Kalmar län</p>
-</footer>
+    function toggleMenu() {
+      const isOpen = menu.classList.toggle("active");
+      menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      menuBtn.textContent = isOpen ? "×" : "☰";
+    }
 
-<script>
-const translations = {
-  sv: {
-    navHome: "Hem",
-    navAbout: "Om oss",
-    navServices: "Tjänster",
-    navReviews: "Recensioner",
-    navBooking: "Bokning",
-    navContact: "Kontakt",
+    function setLanguage(language) {
+      localStorage.setItem("lang", language);
+      document.documentElement.lang = language;
 
-    heroBadge: "Professionell polering i Kalmar län",
-    heroTitle: "Polering – få din bil att glänsa.",
-    heroText: "Professionell polering, bilvård och lackförsegling. Över 12 års erfarenhet. Vi kan även komma hem till dig och utföra tjänsten där bilen finns.",
-    heroButton: "Få pris & tid",
+      document.querySelectorAll("[data-key]").forEach(element => {
+        const key = element.getAttribute("data-key");
+        const value = translations[language][key];
 
-    trust1Title: "Sedan 2022",
-    trust1Text: "Fokus på kvalitet.",
-    trust2Title: "12+ år",
-    trust2Text: "Erfarenhet inom polering.",
-    trust3Title: "Hemservice",
-    trust3Text: "Vi kan komma hem till dig.",
-    trust4Title: "Lackförsegling",
-    trust4Text: "Skyddar bilens lack.",
+        if (!value) return;
 
-    aboutTitle: "Om JHL Glans AB",
-    aboutSubtitle: "Noggrann bilvård med professionell finish.",
-    aboutText1: "JHL Glans AB startade sin verksamhet år 2022 och arbetar med polering, bilvård och lackförsegling i Kalmar län.",
-    aboutText2: "Personen som arbetar med polering har mer än 12 års erfarenhet och vet hur bilens yta ska behandlas för att få fram glans, djup och en bättre finish.",
-    aboutText3: "Skicka gärna bilder på bilen, så hjälper vi dig med rekommendation, pris och tid.",
+        if (key === "heroTitle") {
+          element.innerHTML = value;
+        } else {
+          element.textContent = value;
+        }
+      });
 
-    servicesTitle: "Våra tjänster",
-    servicesSubtitle: "Enkla tjänster med tydligt resultat.",
-    service1Title: "Polering",
-    service1Text: "Vi tar fram bilens glans, djup och fräscha känsla. Perfekt när bilen ska kännas ny igen.",
-    service2Title: "Lackförsegling",
-    service2Text: "En skyddsbehandling på bilens befintliga lack. Det är inte lackering eller målning.",
-    service3Title: "Bilvård",
-    service3Text: "Noggrann rengöring och vård som gör bilen fräschare och trevligare att använda.",
-    service4Title: "Polering hemma hos dig",
-    service4Text: "Vi kan komma hem till dig och utföra jobbet där bilen står.",
+      document.querySelectorAll("[data-placeholder-key]").forEach(element => {
+        const key = element.getAttribute("data-placeholder-key");
+        if (translations[language][key]) {
+          element.placeholder = translations[language][key];
+        }
+      });
 
-    homeTitle: "Vi kan komma hem till dig",
-    homeText: "Vill du slippa åka iväg med bilen? Kontakta oss, skicka bilder och berätta vad du behöver. Vi återkommer med rekommendation, pris och tid.",
+      svBtn.classList.toggle("active", language === "sv");
+      enBtn.classList.toggle("active", language === "en");
+      closeMenu();
+    }
 
-    reviewsTitle: "Kundrecensioner",
-    reviewsSubtitle: "Vad kunder uppskattar hos oss.",
-    review1: "“Bilen fick en helt ny känsla efter poleringen. Väldigt nöjd.”",
-    review2: "“Smidig kontakt och noggrant arbete. Extra bra att de kunde komma hem.”",
-    review3: "“Det märks att de har erfarenhet. Bilen blev mycket finare.”",
+    // Load saved language on start
+const savedLang = localStorage.getItem("lang") || "sv";
+setLanguage(savedLang);
 
-    bookingTitle: "Skicka ärende",
-    bookingSubtitle: "Fyll i formuläret och bifoga gärna bilder på bilen. Vi svarar med pris och tid.",
-    labelName: "Ditt namn",
-    labelPhone: "Telefonnummer",
-    labelEmail: "E-post",
-    labelLocation: "Var finns bilen?",
-    labelService: "Välj tjänst",
-    labelImages: "Ladda upp bilder på bilen",
-    labelMessage: "Meddelande",
-    placeholderName: "Skriv ditt namn",
-    placeholderPhone: "Skriv ditt telefonnummer",
-    placeholderEmail: "Skriv din e-post",
-    placeholderLocation: "Exempel: Kalmar, Nybro, Oskarshamn",
-    placeholderMessage: "Berätta kort om bilen och vad du vill ha hjälp med",
-    option1: "Jag vill ha rekommendation",
-    option2: "Polering",
-    option3: "Lackförsegling",
-    option4: "Bilvård",
-    option5: "Polering hemma hos mig",
-    sendButton: "Skicka ärende",
-    formNote: "Viktigt: byt DIN-KOD-HÄR till din riktiga Formspree-länk. Annars skickas inte formuläret.",
+menuBtn.addEventListener("click", toggleMenu);
+    svBtn.addEventListener("click", () => setLanguage("sv"));
+    enBtn.addEventListener("click", () => setLanguage("en"));
 
-    mapTitle: "Polering i Kalmar län",
-    mapSubtitle: "Vi hjälper kunder i Kalmar län.",
+    // Smooth scroll + close menu
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener("click", event => {
+    const target = document.querySelector(link.getAttribute("href"));
+    if (!target) return;
 
-    faqTitle: "Vanliga frågor",
-    faqSubtitle: "Snabba svar innan du bokar.",
-    faq1q: "Kan ni komma hem till mig?",
-    faq1a: "Ja, vi kan komma hem till dig och utföra tjänsten där bilen finns.",
-    faq2q: "Vad är lackförsegling?",
-    faq2a: "Det är en skyddsbehandling som appliceras på bilens befintliga lack.",
-    faq3q: "Kan jag skicka bilder?",
-    faq3a: "Ja, bifoga gärna bilder så kan vi rekommendera rätt tjänst.",
+    event.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    closeMenu();
+  });
+});
 
-    contactTitle: "Kontakta JHL Glans AB",
-    contactText: "Vi är bara ett samtal bort.",
-    footerText: "© 2026 JHL Glans AB | Polering, bilvård och lackförsegling i Kalmar län"
-  },
+// Highlight active menu link on scroll
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
 
-  en: {
-    navHome: "Home",
-    navAbout: "About us",
-    navServices: "Services",
-    navReviews: "Reviews",
-    navBooking: "Booking",
-    navContact: "Contact",
+window.addEventListener("scroll", () => {
+  let current = "";
 
-    heroBadge: "Professional car polishing in Kalmar County",
-    heroTitle: "Car polishing – make your car shine.",
-    heroText: "Professional polishing, car care and paint sealant. Over 12 years of experience. We can also come to your home and perform the service where the car is located.",
-    heroButton: "Get price & time",
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 120;
+    if (window.scrollY >= sectionTop) {
+      current = section.getAttribute("id");
+    }
+  });
 
-    trust1Title: "Since 2022",
-    trust1Text: "Focus on quality.",
-    trust2Title: "12+ years",
-    trust2Text: "Experience in polishing.",
-    trust3Title: "Home service",
-    trust3Text: "We can come to your home.",
-    trust4Title: "Paint sealant",
-    trust4Text: "Protects your car paint.",
+  navLinks.forEach(link => {
+    link.classList.remove("active-link");
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active-link");
+    }
+  });
+});
 
-    aboutTitle: "About JHL Glans AB",
-    aboutSubtitle: "Careful car care with professional finish.",
-    aboutText1: "JHL Glans AB started in 2022 and works with polishing, car care and paint sealant in Kalmar County.",
-    aboutText2: "The person working with polishing has more than 12 years of experience and knows how to bring out shine, depth and a better finish.",
-    aboutText3: "Please send photos of the car, and we will help with recommendation, price and time.",
-
-    servicesTitle: "Our services",
-    servicesSubtitle: "Simple services with clear results.",
-    service1Title: "Polishing",
-    service1Text: "We bring out shine, depth and a fresh feeling. Perfect when your car should feel new again.",
-    service2Title: "Paint sealant",
-    service2Text: "A protective treatment on the existing paint. It is not repainting or painting.",
-    service3Title: "Car care",
-    service3Text: "Careful cleaning and treatment that makes the car fresher and more pleasant to use.",
-    service4Title: "Polishing at your home",
-    service4Text: "We can come to your home and perform the work where the car is parked.",
-
-    homeTitle: "We can come to your home",
-    homeText: "Want to avoid taking the car somewhere? Contact us, send photos and tell us what you need. We will reply with recommendation, price and time.",
-
-    reviewsTitle: "Customer reviews",
-    reviewsSubtitle: "What customers appreciate about us.",
-    review1: "“The car felt completely different after polishing. Very satisfied.”",
-    review2: "“Easy contact and careful work. Great that they could come home.”",
-    review3: "“You can tell they have experience. The car looked much better.”",
-
-    bookingTitle: "Send request",
-    bookingSubtitle: "Fill in the form and preferably attach photos of the car. We reply with price and time.",
-    labelName: "Your name",
-    labelPhone: "Phone number",
-    labelEmail: "Email",
-    labelLocation: "Where is the car located?",
-    labelService: "Choose service",
-    labelImages: "Upload photos of the car",
-    labelMessage: "Message",
-    placeholderName: "Write your name",
-    placeholderPhone: "Write your phone number",
-    placeholderEmail: "Write your email",
-    placeholderLocation: "Example: Kalmar, Nybro, Oskarshamn",
-    placeholderMessage: "Tell us briefly about the car and what you need help with",
-    option1: "I want a recommendation",
-    option2: "Polishing",
-    option3: "Paint sealant",
-    option4: "Car care",
-    option5: "Polishing at my home",
-    sendButton: "Send request",
-    formNote: "Important: replace DIN-KOD-HÄR with your real Formspree link. Otherwise the form will not send.",
-
-    mapTitle: "Car polishing in Kalmar County",
-    mapSubtitle: "We help customers in Kalmar County.",
-
-    faqTitle: "Frequently asked questions",
-    faqSubtitle: "Quick answers before booking.",
-    faq1q: "Can you come to my home?",
-    faq1a: "Yes, we can come to your home and perform the service where the car is located.",
-    faq2q: "What is paint sealant?",
-    faq2a: "It is a protective treatment applied to the car’s existing paint.",
-    faq3q: "Can I send photos?",
-    faq3a: "Yes, please attach photos so we can recommend the right service.",
-
-    contactTitle: "Contact JHL Glans AB",
-    contactText: "We are only one call away.",
-    footerText: "© 2026 JHL Glans AB | Polishing, car care and paint sealant in Kalmar County"
+// Close menu when clicking outside
+window.addEventListener("click", (e) => {
+  if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+    closeMenu();
   }
-};
-
-function setLanguage(language) {
-  document.documentElement.lang = language;
-
-  document.querySelectorAll("[data-key]").forEach(element => {
-    const key = element.getAttribute("data-key");
-    if (translations[language][key]) {
-      element.textContent = translations[language][key];
-    }
-  });
-
-  document.querySelectorAll("[data-placeholder-key]").forEach(element => {
-    const key = element.getAttribute("data-placeholder-key");
-    if (translations[language][key]) {
-      element.placeholder = translations[language][key];
-    }
-  });
-}
-</script>
-
+});
+  </script>
 </body>
 </html>
