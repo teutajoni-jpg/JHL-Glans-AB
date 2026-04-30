@@ -3,8 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JHL Glans AB | Polering i Kalmar län</title>
-  <meta name="description" content="JHL Glans AB erbjuder professionell polering, bilvård och lackförsegling i Kalmar län. Över 12 års erfarenhet. Vi kan komma hem till dig." />
+  <title>Polering Kalmar | Bilvård & Lackförsegling | JHL Glans AB</title>
+  <meta name="description" content="JHL Glans AB erbjuder professionell polering, lackförsegling och bilvård i Kalmar samt i hela Kalmar län. Över 12 års erfarenhet och möjlighet till hemservice." />
+  <meta name="keywords" content="polering Kalmar, bilvård Kalmar, lackförsegling Kalmar, bilrekond Kalmar, bilpolering Kalmar, polering Kalmar, JHL Glans AB" />
+  <meta property="og:title" content="Polering Kalmar | JHL Glans AB" />
+  <meta property="og:description" content="Professionell polering, bilvård och lackförsegling på Kalmar i Kalmar. Vi erbjuder även hemservice i Kalmar län." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="sv_SE" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoDetailing",
+    "name": "JHL Glans AB",
+    "description": "Professionell polering, bilvård och lackförsegling i Kalmar län.",
+    "telephone": "+46729360681",
+    "address": {
+      "@type": "PostalAddress",
+      
+      "addressLocality": "Kalmar",
+      "addressCountry": "SE"
+    },
+    "areaServed": ["Kalmar", "Nybro", "Oskarshamn", "Mönsterås", "Borgholm", "Kalmar län"],
+    "url": "https://jhlglans.se",
+    "serviceType": ["Bilpolering", "Bilvård", "Lackförsegling", "Hemservice"]
+  }
+  </script>
 
   <style>
     * {
@@ -44,11 +67,27 @@
     }
 
     .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       font-size: 30px;
       font-weight: 900;
       letter-spacing: 1px;
       text-transform: uppercase;
       white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .logo img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      border-radius: 50%;
+      box-shadow: 0 0 18px rgba(125, 211, 252, 0.25);
+    }
+
+    .logo-text {
+      display: inline-block;
     }
 
     .logo span {
@@ -275,9 +314,10 @@
       position: absolute;
       z-index: 3;
       right: 6%;
-      bottom: 70px;
+      top: 50%;
+      transform: translateY(-38%);
       width: 330px;
-      background: rgba(15, 23, 42, 0.65); /* lighter */
+      background: rgba(15, 23, 42, 0.72);
       border: 1px solid rgba(125, 211, 252, 0.6);
       border-radius: 18px;
       padding: 22px;
@@ -451,7 +491,7 @@
       border-top: 2px solid #0284c7;
     }
 
-    @media (max-width: 1100px) {
+    @media (max-width: 1250px) {
       .side-card {
         display: none;
       }
@@ -463,7 +503,12 @@
       }
 
       .logo {
-        font-size: 24px;
+        font-size: 21px;
+      }
+
+      .logo img {
+        width: 44px;
+        height: 44px;
       }
 
       .menu-btn {
@@ -555,7 +600,10 @@
 
 <body>
   <header>
-    <div class="logo">JHL <span>Glans</span> AB</div>
+    <a href="#hem" class="logo" aria-label="JHL Glans AB startsida">
+      <img src="logo.png" alt="JHL Glans AB logo">
+      <span class="logo-text">JHL <span>Glans</span> AB</span>
+    </a>
 
     <button class="menu-btn" id="menuBtn" type="button" aria-label="Öppna meny" aria-expanded="false">☰</button>
 
@@ -581,7 +629,7 @@
         <h1 data-key="heroTitle">Polering – <span>få din bil att glänsa.</span></h1>
 
         <p data-key="heroText">
-          Professionell polering, bilvård och lackförsegling. Över 12 års erfarenhet.
+          Professionell polering, bilvård och lackförsegling i Kalmar län. Över 12 års erfarenhet.
           Vi kan även komma hem till dig och utföra tjänsten där bilen finns.
         </p>
 
@@ -626,6 +674,10 @@
     </section>
 
     <section id="om">
+      <div class="section-title">
+        <h2>Polering i Kalmar län</h2>
+        <p>Vi erbjuder professionell bilpolering, lackförsegling och bilvård i hela Kalmar län – i hela Kalmar län.</p>
+      </div>
       <div class="section-title">
         <h2 data-key="aboutTitle">Om JHL Glans AB</h2>
         <p data-key="aboutText">JHL Glans AB arbetar med noggrann bilvård, polering och lackförsegling i Kalmar län.</p>
@@ -681,7 +733,7 @@
 
           <div class="form-group">
             <label for="location" data-key="labelLocation">Var finns bilen?</label>
-            <input id="location" type="text" name="plats" placeholder="Exempel: Kalmar, Nybro, Oskarshamn" data-placeholder-key="placeholderLocation">
+            <input id="location" type="text" name="plats" placeholder="Exempel: Kalmar län" data-placeholder-key="placeholderLocation">
           </div>
 
           <div class="form-group">
@@ -717,9 +769,26 @@
 
     <section class="booking-strip" id="kontakt">
       <h2 data-key="contactTitle">Kontakta JHL Glans AB</h2>
-      <p>072-936 06 81<br>072-384 12 11</p>
+      <p>Kalmar, Kalmar<br>072-936 06 81<br>072-384 12 11</p>
     </section>
   </main>
+
+    <section id="map">
+      <div class="section-title">
+        <h2>Hitta oss i Kalmar</h2>
+        <p>Besök oss på Kalmar i Kalmar. Vi arbetar även i hela Kalmar län.</p>
+      </div>
+      <div style="max-width:1000px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.1);">
+        <iframe src="https://www.google.com/maps?q=Ostindiev%C3%A4gen%208%20Kalmar&output=embed" width="100%" height="400" style="border:0;" loading="lazy"></iframe>
+      </div>
+    </section>
+
+  <section>
+      <div class="section-title">
+        <h2>Vi arbetar i hela Kalmar län</h2>
+        <p>JHL Glans AB finns på Kalmar i Kalmar och hjälper kunder i Kalmar län, Mönsterås, Borgholm och hela regionen. Vi erbjuder även hemservice direkt hos dig.</p>
+      </div>
+    </section>
 
   <footer>
     <p data-key="footerText">© 2026 JHL Glans AB | Polering, bilvård och lackförsegling i Kalmar län</p>
@@ -772,7 +841,7 @@
         placeholderName: "Skriv ditt namn",
         placeholderPhone: "Skriv ditt telefonnummer",
         placeholderEmail: "Skriv din e-post",
-        placeholderLocation: "Exempel: Kalmar, Nybro, Oskarshamn",
+        placeholderLocation: "Exempel: Kalmar län",
         placeholderMessage: "Berätta kort om bilen och vad du vill ha hjälp med",
         option1: "Jag vill ha rekommendation",
         option2: "Polering",
@@ -830,7 +899,7 @@
         placeholderName: "Write your name",
         placeholderPhone: "Write your phone number",
         placeholderEmail: "Write your email",
-        placeholderLocation: "Example: Kalmar, Nybro, Oskarshamn",
+        placeholderLocation: "Example: Kalmar län",
         placeholderMessage: "Tell us briefly about the car and what you need help with",
         option1: "I want a recommendation",
         option2: "Polishing",
